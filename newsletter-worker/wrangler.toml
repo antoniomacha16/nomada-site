@@ -1,0 +1,12 @@
+name = "nomada-newsletter"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+SHOPIFY_SHOP_DOMAIN = "qgze5e-ae.myshopify.com"
+# Domínios autorizados a chamar este endpoint, separados por vírgula, sem barra no fim.
+# nómada.pt escreve-se em punycode (xn--nmada-0ta.pt) — é a forma que o browser envia no header Origin.
+ALLOWED_ORIGINS = "https://xn--nmada-0ta.pt,https://www.xn--nmada-0ta.pt"
+
+# O Admin token NÃO se põe aqui. Guarda-se como secret encriptado:
+#   npx wrangler secret put SHOPIFY_ADMIN_TOKEN

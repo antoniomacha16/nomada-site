@@ -1,0 +1,7 @@
+.git
+.htaccess
+Dockerfile
+docker-compose.yml
+nginx.conf
+.dockerignore
+newsletter-worker

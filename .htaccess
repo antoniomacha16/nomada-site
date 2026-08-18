@@ -1,0 +1,50 @@
+# NÓMADA — configuração de segurança e desempenho para Apache (Hostinger)
+
+# ---- Forçar HTTPS e domínio sem "www" ----
+RewriteEngine On
+
+# http -> https
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www.nómada.pt -> nómada.pt (evita conteúdo duplicado)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+# ---- Cabeçalhos de segurança ----
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(self)"
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+    # Content-Security-Policy: só permite os domínios que o site realmente usa
+    # (Google Fonts, SDK do Botão de Compra da Shopify, API da loja Shopify).
+    # 'unsafe-inline' é necessário porque o site usa <script>/<style> inline nas páginas.
+    # Se publicares o Worker da newsletter, acrescenta o domínio dele a connect-src.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://sdks.shopifycdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.shopify.com https://*.myshopify.com; connect-src 'self' https://qgze5e-ae.myshopify.com https://*.myshopify.com; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
+</IfModule>
+
+# ---- Esconde listagem de pastas ----
+Options -Indexes
+
+# ---- Compressão ----
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---- Cache de imagens/assets estáticos ----
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# ---- Página de erro 404 personalizada ----
+ErrorDocument 404 /404.html

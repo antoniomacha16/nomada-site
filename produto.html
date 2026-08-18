@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NÓMADA · Capa</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <meta name="theme-color" content="#3D2817">
+    <meta name="description" content="Capas de telemóvel com frases, humor e cultura portuguesa.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://xn--nmada-0ta.pt/produto.html" id="canonical-link">
+    <!-- Open Graph: pré-visualização ao partilhar no Instagram/WhatsApp.
+         Título/descrição/imagem/URL abaixo são o valor por omissão; o script no fim
+         da página atualiza-os para o produto certo assim que sabe qual foi escolhido (?p=). -->
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="NÓMADA">
+    <meta property="og:title" content="NÓMADA · Capas de telemóvel com humor português" id="og-title">
+    <meta property="og:description" content="Capas com frases, humor e cultura portuguesa. Design original, feito em Portugal." id="og-description">
+    <meta property="og:url" content="https://xn--nmada-0ta.pt/produto.html" id="og-url">
+    <meta property="og:image" content="https://xn--nmada-0ta.pt/assets/produtos/case-ferias.png" id="og-image">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5EDE0;
+            --cream-light: #FAF6EE;
+            --brown-deep: #3D2817;
+            --brown-medium: #715942;
+            --brown-muted: #81674E;
+            --gold: #95611A;
+            --gold-hover: #805317;
+            --rose: #EBC6C4;
+            --sage: #C4D2B8;
+            --mustard: #E8D6A0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--cream);
+            color: var(--brown-deep);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        /* página a tentar caber numa tela; se não couber, faz scroll (não corta conteúdo) */
+        html, body { min-height: 100vh; }
+        body { display: flex; flex-direction: column; }
+        body > nav { flex: 0 0 auto; }
+        .detail { flex: 1 1 auto; min-height: 0; }
+        footer { flex: 0 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .label {
+            text-transform: uppercase; letter-spacing: 0.24em;
+            font-size: 11px; font-weight: 500; color: var(--brown-medium);
+        }
+
+        /* BARRA DE ANÚNCIO */
+        .announce-bar {
+            background: var(--brown-deep); color: var(--cream);
+            height: 34px; overflow: hidden;
+            font-size: 12px; letter-spacing: 0.08em; font-weight: 400;
+        }
+        .announce-track {
+            display: flex; flex-direction: column;
+        }
+        .announce-track span {
+            height: 34px; flex: 0 0 34px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 16px; text-align: center;
+        }
+
+        /* NAV */
+        body > nav {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(61, 40, 23, 0.06);
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(245, 237, 224, 0.94);
+            backdrop-filter: blur(16px);
+        }
+        body > nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px; letter-spacing: 0.3em;
+            color: #7a4900; font-weight: 500; text-decoration: none;
+            margin-left: 40px;
+        }
+        /* Ícone do carrinho */
+        .nav-cart { position: relative; display: inline-flex; align-items: center; color: var(--brown-deep); margin-left: 44px; margin-right: 40px; transition: color 0.2s; }
+        .nav-cart:hover { color: var(--gold); }
+        .nav-cart svg { width: 23px; height: 23px; }
+        .cart-count {
+            position: absolute; top: -7px; right: -9px;
+            min-width: 17px; height: 17px; padding: 0 4px;
+            border-radius: 9px; background: var(--gold); color: var(--cream);
+            font-size: 10px; font-weight: 600; line-height: 17px; text-align: center;
+            display: none;
+        }
+        .cart-count.show { display: block; }
+        .shopify-buy-frame--toggle,
+        .shopify-buy__cart-toggle-wrapper,
+        #shopify-buy-cart-toggle {
+            position: fixed !important; left: -9999px !important; top: 0 !important;
+            opacity: 0 !important;
+        }
+        .nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; }
+        .nav-links a {
+            position: relative;
+            color: var(--brown-deep); text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.06em;
+            transition: color 0.2s;
+        }
+        .nav-links a::after {
+            content: ""; position: absolute; left: 0; bottom: -5px;
+            width: 100%; height: 1.5px; background: var(--gold);
+            transform: scaleX(0); transform-origin: left center;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+
+        /* PRODUCT DETAIL */
+        .detail { display: flex; align-items: center; padding: 10px 0 20px; overflow: visible; position: relative; }
+        .detail .container { width: 100%; }
+        .breadcrumb { margin-bottom: 14px; font-size: 13px; color: var(--brown-medium); }
+        .breadcrumb a { color: var(--brown-medium); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--gold); }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 15px; font-weight: 500; letter-spacing: 0.02em;
+            transition: color 0.2s, gap 0.2s;
+        }
+        .back-link:hover { gap: 9px; }
+
+        .detail-grid {
+            display: grid; grid-template-columns: 1.05fr 0.95fr;
+            gap: 48px; align-items: stretch;
+        }
+
+        /* GALLERY */
+        .gallery { display: flex; flex-direction: column; }
+        /* a galeria estica até ao nível dos métodos de pagamento (coluna direita) */
+        .gallery-main {
+            position: relative; overflow: hidden;
+            border-radius: 20px;
+            /* caixa de altura fixa: todas as capas aparecem ao mesmo tamanho,
+               independentemente da resolução da imagem original */
+            flex: none; height: clamp(420px, 62vh, 620px); min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            padding: 28px;
+            /* mesmo fundo do site; o destaque vem só do rebordo sombreado */
+            background: var(--cream);
+            border: 1px solid rgba(61, 40, 23, 0.14);
+            box-shadow: 0 14px 36px rgba(61, 40, 23, 0.13);
+        }
+        /* precisa de altura definida, senão o max-height:100% da imagem não resolve
+           contra nada e a foto transborda e é cortada pelo overflow:hidden */
+        #gallery-media {
+            height: 100%; width: 100%; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .gallery-main img {
+            position: relative; z-index: 1;
+            /* width/height a 100% + contain: as imagens pequenas também são
+               ampliadas, por isso a capa ocupa sempre a mesma altura */
+            width: 100%; height: 100%; object-fit: contain;
+            filter: drop-shadow(8px 14px 28px rgba(61, 40, 23, 0.16));
+            transition: opacity 0.25s;
+        }
+        /* fotografias reais: mostradas por inteiro, sem corte nem deformação */
+        .gallery-main.is-photo { padding: 16px; }
+        .gallery-main.is-photo img {
+            width: auto; height: auto;
+            max-width: 100%; max-height: 100%;
+            object-fit: contain;
+            border-radius: 14px;
+            filter: none;
+        }
+        /* crossfade suave a cada troca de foto */
+        #gallery-media img, #gallery-media video { animation: slideIn 0.35s ease; }
+        @keyframes slideIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #gallery-media img, #gallery-media video { animation: none; }
+        }
+        /* modo vídeo — preenche o retângulo todo, sem controlos/interação */
+        .gallery-main.video-mode { padding: 0; }
+        .gallery-main.video-mode video {
+            position: absolute; inset: 0; z-index: 1;
+            width: 100%; height: 100%; max-width: none;
+            object-fit: cover;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+        /* VISUALIZADOR 3D (arrastar para rodar 360°) */
+        .spin3d-wrap { position: absolute; inset: 0; z-index: 1; cursor: grab; touch-action: none; }
+        .spin3d-wrap:active { cursor: grabbing; }
+        .spin3d-wrap canvas { display: block; width: 100%; height: 100%; }
+        .spin3d-hint {
+            position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+            z-index: 2; pointer-events: none; white-space: nowrap;
+            font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+            color: var(--brown-medium); background: rgba(250, 246, 238, 0.88);
+            padding: 7px 14px; border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(61, 40, 23, 0.08);
+        }
+        .spin3d-loading {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown-muted);
+        }
+
+        /* Setas do carrossel */
+        .gallery-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            z-index: 2; width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(250, 246, 238, 0.9);
+            border: 1px solid rgba(61, 40, 23, 0.1);
+            color: var(--brown-deep);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(61, 40, 23, 0.12);
+            transition: background 0.2s, transform 0.2s, color 0.2s;
+        }
+        .gallery-arrow:hover { background: var(--gold); color: var(--cream); transform: translateY(-50%) scale(1.06); }
+        .gallery-arrow.prev { left: 14px; }
+        .gallery-arrow.next { right: 14px; }
+        .gallery-arrow svg { width: 18px; height: 18px; }
+        .gallery-dots {
+            display: flex; justify-content: center; gap: 7px; margin-top: 12px;
+        }
+        .gallery-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(61, 40, 23, 0.18);
+            cursor: pointer; border: none; padding: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .gallery-dot.active { background: var(--gold); transform: scale(1.25); }
+        /* INFO */
+        .info .label { display: inline-block; margin-bottom: 10px; }
+        .info h1 {
+            font-family: 'Shadows Into Light Two', cursive; font-weight: 400;
+            font-size: clamp(25px, 3vw, 38px); line-height: 1.15;
+            letter-spacing: 0; margin-bottom: 12px;
+        }
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; color: var(--gold); margin-bottom: 18px;
+        }
+        .info-desc {
+            font-size: 15px; color: var(--brown-medium);
+            line-height: 1.7; margin-bottom: 6px; max-width: 460px;
+        }
+        .info-desc-extra {
+            font-size: 15px; color: var(--brown-medium);
+            line-height: 1.7; margin-bottom: 20px; max-width: 460px;
+        }
+        .buy-block {
+            border-top: 1px solid rgba(61, 40, 23, 0.08);
+            padding-top: 18px;
+        }
+        .buy-hint {
+            font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+            color: var(--brown-muted); margin-bottom: 12px; font-weight: 500;
+        }
+        /* nota de devolução + tagline por baixo do botão */
+        .pdp-returns {
+            margin-top: 14px; font-size: 13px; color: var(--brown-medium);
+            text-align: center;
+        }
+        .pdp-payments {
+            display: flex; flex-wrap: nowrap; gap: 6px; justify-content: flex-start;
+            margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid rgba(61, 40, 23, 0.08);
+        }
+        .pdp-payments span {
+            display: inline-flex; align-items: center; justify-content: center;
+            height: 32px; padding: 5px 7px; flex: 1 1 0; min-width: 0; max-width: 50px;
+            background: #fff;
+            border: 1px solid rgba(61, 40, 23, 0.12);
+            border-radius: 9px;
+            box-shadow: 0 1px 3px rgba(61, 40, 23, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pdp-payments span:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(61, 40, 23, 0.14);
+        }
+        .pdp-payments .pay-logo img {
+            width: 100%; height: 100%; object-fit: contain; display: block;
+        }
+        /* preço nosso (o do Shopify está desligado): atual + "antes" riscado */
+        /* prazo assumido à frente, junto ao botão de compra */
+        .pdp-ship { margin: 6px 0 2px; font-size: 12px; line-height: 1.4; color: var(--brown-medium); }
+        .pdp-price {
+            display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+        .pdp-price-now {
+            font-family: 'Inter', sans-serif; font-weight: 300;
+            font-size: 20px; color: var(--brown-deep);
+        }
+        .pdp-compare-price {
+            font-family: 'Inter', sans-serif; font-weight: 300;
+            font-size: 14px; color: var(--brown-muted);
+            text-decoration: line-through; text-decoration-thickness: 1px;
+        }
+        .buy-btn-wrap { min-height: 50px; max-width: 380px; }
+
+        /* Seletor de modelo — bordas redondas, profissional */
+        .buy-btn-wrap .shopify-buy__option-select-wrapper {
+            position: relative !important; margin-bottom: 12px !important;
+        }
+        .buy-btn-wrap select,
+        .buy-btn-wrap .shopify-buy__option-select__select {
+            -webkit-appearance: none !important; -moz-appearance: none !important; appearance: none !important;
+            width: 100% !important;
+            font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 400 !important;
+            color: var(--brown-deep) !important; background-color: var(--cream-light) !important;
+            border: 1px solid rgba(61, 40, 23, 0.15) !important; border-radius: 14px !important;
+            padding: 13px 42px 13px 16px !important; line-height: 1.2 !important;
+            cursor: pointer !important; box-shadow: none !important; outline: none !important;
+            transition: border-color 0.2s, box-shadow 0.2s !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%233D2817' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important; background-position: right 16px center !important; background-size: 12px 8px !important;
+        }
+        .buy-btn-wrap select:hover,
+        .buy-btn-wrap .shopify-buy__option-select__select:hover { border-color: var(--gold) !important; }
+        .buy-btn-wrap select:focus,
+        .buy-btn-wrap .shopify-buy__option-select__select:focus {
+            border-color: var(--gold) !important; box-shadow: 0 0 0 3px rgba(149, 97, 26, 0.15) !important;
+        }
+        .buy-btn-wrap .shopify-buy__select-icon { display: none !important; }
+        /* esconder etiqueta "Size" do seletor */
+        .buy-btn-wrap .shopify-buy__option-select__label { display: none !important; }
+        /* esconder "Regular price" — mostrar só o valor */
+        .buy-btn-wrap .visuallyhidden,
+        .buy-btn-wrap .shopify-buy__visually-hidden,
+        .buy-btn-wrap .shopify-buy__price__regular-label { display: none !important; }
+
+        /* Botão Comprar — repor tamanho/forma (componente sem iframe) */
+        .buy-btn-wrap .shopify-buy__product,
+        .buy-btn-wrap .shopify-buy__btn-wrapper { width: 100% !important; margin: 0 !important; }
+        .buy-btn-wrap .shopify-buy__btn {
+            display: block !important;
+            width: 100% !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: var(--cream) !important;
+            background-color: var(--gold) !important;
+            border: none !important;
+            border-radius: 25px !important;
+            padding: 14px 28px !important;
+            line-height: 1.2 !important;
+            transition: background-color 0.25s !important;
+        }
+        .buy-btn-wrap .shopify-buy__btn:hover,
+        .buy-btn-wrap .shopify-buy__btn:focus { background-color: var(--gold-hover) !important; }
+
+        /* FOOTER */
+        footer { padding: 14px 0; background: var(--brown-deep); color: var(--cream); }
+        .foot-legal { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; }
+        .foot-legal a { color: var(--cream); text-decoration: none; opacity: 0.85; }
+        .foot-legal a:hover { opacity: 1; text-decoration: underline; }
+        footer .container {
+            display: flex; justify-content: center; align-items: center;
+            flex-wrap: wrap; gap: 8px 24px;
+            font-size: 11px; color: var(--cream); letter-spacing: 0.06em;
+            text-align: center;
+        }
+
+        @media (max-width: 860px) {
+            /* no telemovel o rodape volta a ficar centrado, empilhado */
+            footer .container { justify-content: center; }
+            .foot-legal { justify-content: center; }
+            /* no telemóvel deixa a página crescer e fazer scroll normal */
+            body { overflow: auto; display: block; height: auto; }
+            .detail { display: block; padding: 20px 0 40px; overflow: visible; }
+            .detail-grid { grid-template-columns: 1fr; gap: 22px; }
+            .gallery { position: static; }
+            .gallery-main { flex: none; height: min(56vh, 440px); min-height: 0; padding: 14px; }
+            .gallery-main.is-photo { padding: 8px; }
+            .gallery-arrow { width: 36px; height: 36px; }
+            .gallery-arrow.prev { left: 10px; }
+            .gallery-arrow.next { right: 10px; }
+            .info-desc, .info-desc-extra { max-width: none; }
+            .buy-btn-wrap { max-width: 100%; }
+            .nav-links { gap: 20px; }
+            .nav-links a { font-size: 13px; }
+        }
+        @media (max-width: 560px) {
+            .nav-links { display: none; }
+        }
+        /* POP-UP NEWSLETTER */
+        .newsletter-popup { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 24px; background: rgba(46,29,17,.48); opacity: 0; visibility: hidden; transition: opacity .28s ease, visibility .28s ease; }
+        .newsletter-popup.is-visible { opacity: 1; visibility: visible; }
+        .newsletter-dialog { position: relative; width: min(100%,470px); padding: 48px 42px 40px; text-align: center; background: var(--cream); border: 1px solid rgba(61,40,23,.16); border-radius: 18px; box-shadow: 0 22px 60px rgba(34,21,12,.28); transform: translateY(14px); transition: transform .28s ease; }
+        .newsletter-popup.is-visible .newsletter-dialog { transform: translateY(0); }
+        .newsletter-close { position: absolute; top: 13px; right: 15px; border: 0; background: transparent; color: var(--brown-deep); font-size: 28px; line-height: 1; cursor: pointer; }
+        .newsletter-kicker { margin: 0 0 12px; color: var(--gold); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .newsletter-dialog h2 { margin: 0; color: var(--brown-deep); font-family: 'Playfair Display',serif; font-size: clamp(29px,6vw,38px); font-weight: 500; line-height: 1.08; }
+        .newsletter-dialog p { margin: 17px auto 25px; max-width: 340px; font-size: 14px; line-height: 1.65; }
+        .newsletter-form { display: flex; gap: 8px; }
+        .newsletter-form input { min-width: 0; flex: 1; padding: 13px; border: 1px solid rgba(61,40,23,.3); border-radius: 0; background: #fffdf8; color: var(--brown-deep); font: 14px 'Inter',sans-serif; }
+        .newsletter-form button { border: 0; padding: 13px 18px; background: var(--brown-deep); color: var(--cream); font: 500 11px 'Inter',sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+        .newsletter-success { display: none; margin: 0; color: var(--brown-deep); }
+        .newsletter-error { display: none; margin: 14px auto 0; color: #A44432; font-size: 13px; line-height: 1.5; }
+        .newsletter-popup.has-error .newsletter-error { display: block; }
+        .newsletter-popup.is-subscribed .newsletter-form, .newsletter-popup.is-subscribed .newsletter-dialog > p { display: none; }
+        .newsletter-popup.is-subscribed .newsletter-success { display: block; }
+        /* consentimento RGPD: caixa nunca pré-marcada (art. 7.º RGPD) */
+        .newsletter-consent { display: flex; gap: 9px; align-items: flex-start; margin: 14px auto 0; max-width: 340px; text-align: left; font-size: 11.5px; line-height: 1.5; color: var(--brown-medium); cursor: pointer; }
+        .newsletter-consent input { flex: none; margin-top: 2px; accent-color: var(--gold); }
+        .newsletter-consent a { color: var(--gold); }
+        .newsletter-popup.is-subscribed .newsletter-consent { display: none; }
+        @media (max-width:480px) { .newsletter-dialog { padding: 44px 25px 30px; } .newsletter-form { flex-direction: column; } }
+
+        /* BANNER DE COOKIES (RGPD) */
+        .cookie-banner {
+            position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 500;
+            max-width: 760px; margin: 0 auto;
+            background: var(--brown-deep); color: var(--cream);
+            border-radius: 16px; padding: 20px 24px;
+            box-shadow: 0 16px 48px rgba(61, 40, 23, 0.28);
+            display: none;
+            flex-wrap: wrap; align-items: center; gap: 16px 24px;
+        }
+        .cookie-banner.show { display: flex; }
+        .cookie-text { flex: 1 1 320px; font-size: 13px; line-height: 1.6; }
+        .cookie-text a { color: var(--gold); text-decoration: underline; }
+        .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cookie-btn {
+            font-family: 'Inter', sans-serif; cursor: pointer;
+            font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+            padding: 12px 22px; border-radius: 25px; border: 1px solid transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+        .cookie-accept { background: var(--gold); color: var(--cream); border: none; }
+        .cookie-accept:hover { background: var(--gold-hover); }
+        .cookie-reject { background: transparent; color: var(--cream); border: 1px solid rgba(245, 237, 224, 0.35); }
+        .cookie-reject:hover { background: rgba(245, 237, 224, 0.1); }
+    </style>
+</head>
+<body>
+
+<!-- POP-UP NEWSLETTER -->
+<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-title" aria-hidden="true">
+    <div class="newsletter-dialog">
+        <button class="newsletter-close" type="button" aria-label="Fechar">×</button>
+        <div class="newsletter-kicker">Clube NÓMADA</div>
+        <h2 id="newsletter-title">Subscreve a nossa newsletter</h2>
+        <p>Recebe 10% de desconto na tua primeira compra, além de novidades e lançamentos em primeira mão.</p>
+        <form class="newsletter-form" novalidate>
+            <input type="email" name="email" autocomplete="email" placeholder="O teu e-mail" aria-label="O teu e-mail" required>
+            <button type="submit" aria-label="Subscrever newsletter e enviar e-mail">Subscrever newsletter</button>
+        </form>
+        <label class="newsletter-consent">
+            <input type="checkbox" class="newsletter-consent-box">
+            <span>Aceito receber e-mails da NÓMADA com novidades e promoções e li a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>. Posso cancelar a subscrição a qualquer momento.</span>
+        </label>
+        <p class="newsletter-error" role="alert" aria-live="polite"></p>
+        <p class="newsletter-success" role="status">Obrigada por te juntares ao clube NÓMADA! O teu desconto de 10% está a caminho.</p>
+    </div>
+</div>
+
+<!-- BARRA DE ANÚNCIO -->
+<div class="announce-bar">
+    <div class="announce-track">
+        <span>Não percas a nova coleção!</span>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <a href="index.html" class="logo">NÓMADA</a>
+        <div class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="index.html#colecao">Catálogo</a>
+            <a href="index.html#sobre">Sobre</a>
+        </div>
+        <a href="#" class="nav-cart" id="nav-cart" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8h12l-.8 11.2a1 1 0 0 1-1 .8H7.8a1 1 0 0 1-1-.8L6 8z"/>
+                <path d="M9 8a3 3 0 0 1 6 0"/>
+            </svg>
+            <span class="cart-count" id="cart-count"></span>
+        </a>
+    </div>
+</nav>
+
+<!-- PRODUCT DETAIL -->
+<section class="detail">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html" class="back-link">&larr; Voltar</a>
+        </div>
+        <div class="detail-grid">
+            <!-- GALLERY -->
+            <div class="gallery" id="gallery">
+                <div class="gallery-main" id="gallery-main">
+                    <div id="gallery-media"></div>
+                    <button class="gallery-arrow prev" id="gallery-prev" aria-label="Foto anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button class="gallery-arrow next" id="gallery-next" aria-label="Foto seguinte">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+                <div class="gallery-dots" id="gallery-dots"></div>
+            </div>
+            <!-- INFO -->
+            <div class="info">
+                <span class="label" id="info-label">A coleção NÓMADA</span>
+                <h1 id="info-name">Capa</h1>
+                <p class="info-desc" id="info-desc"></p>
+                <p class="info-desc-extra">Capa exclusiva NÓMADA com design original, impressão de alta qualidade e resistente ao dia-a-dia. Agora disponível para vários modelos.</p>
+                <div class="buy-block">
+                    <div class="pdp-price">
+                        <span class="pdp-price-now" id="info-price"></span>
+                        <span class="pdp-compare-price" id="info-price-old"></span>
+                    </div>
+                    <p class="pdp-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-hint" id="buy-hint">Seleciona o teu modelo de telemóvel</div>
+                    <div class="buy-btn-wrap">
+                        <div id="pdp-buy"></div>
+                    </div>
+                    <div class="pdp-payments" aria-label="Métodos de pagamento">
+                        <span class="pay-logo"><img src="assets/pagamentos/visa_top.webp" alt="Visa"></span>
+                        <span class="pay-logo"><img src="assets/pagamentos/mastercard.png" alt="Mastercard"></span>
+                        <span class="pay-logo"><img src="assets/pagamentos/multibanco.png" alt="Multibanco"></span>
+                        <span class="pay-logo"><img src="assets/pagamentos/apple_pay.png" alt="Apple Pay"></span>
+                        <span class="pay-logo"><img src="assets/pagamentos/googlepay.png" alt="Google Pay"></span>
+                        <span class="pay-logo"><img src="assets/pagamentos/shoppay.svg" alt="Shop Pay"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <span>© 2026 NÓMADA · Feito com carinho para ti</span>
+    </div>
+</footer>
+
+<script type="text/javascript">
+/* ===== DADOS DAS CAPAS =====
+   Para adicionar fotos de outros ângulos, acrescenta os nomes dos ficheiros
+   ao array "images" de cada capa (a 1ª é a principal). */
+var PRODUCTS = {
+    "portuguesa": {
+        name: "Pilates às 8h",
+        shopifyId: "15654954500473",
+        price: "24,99€",
+        stripe: "#D7A7A3",
+        desc: "\"Pilates às 8h\" era o plano. Acordar às 8h02 e voltar a dormir foi a realidade. 🧘‍♀️",
+        images: [
+            "rosa/Front-13-trim.png",
+            "rosa/imagens%20sem%20fundo/Layers-12-removebg-preview.png",
+            "rosa/imagens%20sem%20fundo/iPhone_16__Glossy-removebg-preview.png"
+        ]
+    },
+    "girldinner": {
+        name: "Girl Dinner",
+        shopifyId: "15654942278009",
+        price: "24,99€",
+        stripe: "#C4D2B8",
+        desc: "O girl dinner que sabe mais que o brunch a 18€ que tiraste para o story. 🐟",
+        images: [
+            "verde/Front-14-trim.png",
+            "verde/imagens%20sem%20fundo/Layers-13-removebg-preview.png",
+            "verde/imagens%20sem%20fundo/Close-up-13-removebg-preview.png"
+        ]
+    },
+    "nemera": {
+        name: "Nem era para sair hoje",
+        shopifyId: "15654951747961",
+        price: "24,99€",
+        stripe: "#E8D6A0",
+        desc: "\"Juro que hoje fico em casa.\" Duas horas depois, terceiro cocktail e a dizer à amiga \"mais uma e vamos.\" 🍸",
+        images: [
+            "amarela/nomada-nem-era-frente-trim.png",
+            "amarela/nomada-nem-era-camadas-removebg-preview.png",
+            "amarela/nomada-nem-era-closeup-removebg-preview.png"
+        ]
+    },
+    "redflags": {
+        name: "red flags? eu coleciono",
+        shopifyId: "15655304462713",
+        price: "24,99€",
+        stripe: "#E8BAA8",
+        desc: "Não ignoro red flags, faço uma coleção. Já vou pelo terceiro álbum. 🚩",
+        images: [
+            "vermelha/Front-12-trim.png",
+            "vermelha/imagens%20sem%20fundo/Layers-11-removebg-preview.png",
+            "vermelha/imagens%20sem%20fundo/Close-up-11-removebg-preview.png"
+        ]
+    },
+    "5minutos": {
+        name: "5 minutos e saio...",
+        shopifyId: "15655368327545",
+        price: "24,99€",
+        stripe: "#C9BCE0",
+        desc: "\"5 minutos e saio\" é uma unidade de tempo só nossa. Ninguém percebe. 💄",
+        images: [
+            "roxa/Front-11-trim.png",
+            "roxa/imagens%20sem%20fundo/Layers-10-removebg-preview.png",
+            "roxa/imagens%20sem%20fundo/Close-up-10-removebg-preview.png"
+        ]
+    },
+    "paris": {
+        name: "Meet me in Paris",
+        shopifyId: "15698256822649",
+        price: "24,99€",
+        stripe: "#ADB8BE",
+        desc: "Croissant, café e aquele plano de fuga que ainda não marcaste. Paris que espere mais um bocadinho. 🥐",
+        images: [
+            "azul/Front-16-trim.png",
+            "azul/imagens%20sem%20fundo/Layers-15-removebg-preview.png",
+            "azul/imagens%20sem%20fundo/Close-up-15-removebg-preview.png"
+        ]
+    }
+};
+
+/* Descobrir qual capa mostrar (?p=slug); por defeito, a Pilates às 8h */
+var params = new URLSearchParams(window.location.search);
+var slug = params.get("p");
+var resolvedSlug = PRODUCTS[slug] ? slug : "portuguesa";
+var product = PRODUCTS[resolvedSlug];
+
+/* Preencher a página */
+document.title = "NÓMADA · " + product.name;
+
+/* SEO: canonical + Open Graph + dados estruturados têm de refletir o produto
+   certo, senão todas as 6 capas partilham a mesma pré-visualização/indexação. */
+(function () {
+    var pageUrl = "https://xn--nmada-0ta.pt/produto.html?p=" + resolvedSlug;
+    var imageUrl = "https://xn--nmada-0ta.pt/" + product.images[0];
+    var canonicalEl = document.getElementById("canonical-link");
+    if (canonicalEl) { canonicalEl.setAttribute("href", pageUrl); }
+    var ogTitle = document.getElementById("og-title");
+    if (ogTitle) { ogTitle.setAttribute("content", "NÓMADA · " + product.name); }
+    var ogDesc = document.getElementById("og-description");
+    if (ogDesc) { ogDesc.setAttribute("content", product.desc); }
+    var ogUrl = document.getElementById("og-url");
+    if (ogUrl) { ogUrl.setAttribute("content", pageUrl); }
+    var ogImage = document.getElementById("og-image");
+    if (ogImage) { ogImage.setAttribute("content", imageUrl); }
+
+    var ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product.name,
+        "description": product.desc.replace(/[\u{1F1E6}-\u{1FFFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, "").trim(),
+        "image": imageUrl,
+        "brand": { "@type": "Brand", "name": "NÓMADA" },
+        "offers": {
+            "@type": "Offer",
+            "url": pageUrl,
+            "priceCurrency": "EUR",
+            "price": product.price.replace(",", ".").replace("€", "").trim(),
+            "availability": "https://schema.org/InStock"
+        }
+    });
+    document.head.appendChild(ld);
+})();
+document.getElementById("info-name").textContent = product.name;
+document.getElementById("info-desc").textContent = product.desc;
+/* preço vem dos dados da capa: nem todas custam o mesmo */
+document.getElementById("info-price").textContent = product.price;
+/* preço real da Shopify, para não divergir do checkout; o valor acima
+   é só de recurso, caso a chamada falhe.
+   Usa-se o 1.º variante (o que o Buy Button traz pré-seleccionado) e não o
+   minVariantPrice, que dava o modelo mais barato da lista. */
+(function () {
+    if (!window.fetch || !product.shopifyId) { return; }
+    /* token Storefront PÚBLICO, o mesmo dos Buy Buttons */
+    fetch('https://qgze5e-ae.myshopify.com/api/2026-07/graphql.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Shopify-Storefront-Access-Token': '00947491cc3aa75fc79abe82ec046857'
+        },
+        body: JSON.stringify({
+            query: 'query($id: ID!) @inContext(country: PT) { product(id: $id) { variants(first: 1) { nodes { price { amount currencyCode } } } } }',
+            variables: { id: 'gid://shopify/Product/' + product.shopifyId }
+        })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+        var nodes = res && res.data && res.data.product &&
+                    res.data.product.variants && res.data.product.variants.nodes;
+        var mp = nodes && nodes[0] && nodes[0].price;
+        if (!mp) { return; }
+        var txt;
+        try {
+            txt = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: mp.currencyCode || 'EUR' })
+                    .format(parseFloat(mp.amount));
+        } catch (e) {
+            txt = parseFloat(mp.amount).toFixed(2).replace('.', ',') + '€';
+        }
+        document.getElementById("info-price").textContent = txt;
+    }).catch(function () {});
+})();
+var infoPriceOld = document.getElementById("info-price-old");
+if (product.oldPrice) {
+    infoPriceOld.textContent = product.oldPrice;
+} else {
+    infoPriceOld.style.display = "none";
+}
+
+function isVideo(src) { return /\.(mp4|webm|mov)$/i.test(src); }
+/* fotografias reais (com fundo próprio) vs. imagens recortadas/sem fundo,
+   que assentam directamente no fundo do site */
+function isPhoto(src) { return !/Front-|frente|removebg|sem%20fundo/i.test(src); }
+
+/* Carrossel manual (setas + pontinhos), sem avanço automático */
+var galleryMain = document.getElementById("gallery-main");
+var galleryMedia = document.getElementById("gallery-media");
+var dotsWrap = document.getElementById("gallery-dots");
+var current = 0;
+
+function renderSlide(i) {
+    var src = product.images[i];
+    if (window.NomadaSpin) { window.NomadaSpin.dispose(); }
+    if (src === "__3d__") {
+        /* slide 3D interativo */
+        galleryMain.classList.remove("video-mode", "is-photo");
+        galleryMedia.innerHTML = '<div class="spin3d-wrap" id="spin3d-wrap"></div>' +
+            '<div class="spin3d-hint">Arrasta para rodar &middot; 360&deg;</div>';
+        var wrap = document.getElementById('spin3d-wrap');
+        if (window.NomadaSpin) {
+            window.NomadaSpin.init(wrap, product.images[0], product.stripe);
+        } else {
+            wrap.innerHTML = '<div class="spin3d-loading">A carregar o 3D&hellip;</div>';
+            var t0 = Date.now();
+            var wait = setInterval(function () {
+                var w = document.getElementById('spin3d-wrap');
+                if (!w) { clearInterval(wait); return; }
+                if (window.NomadaSpin) {
+                    clearInterval(wait); w.innerHTML = '';
+                    window.NomadaSpin.init(w, product.images[0], product.stripe);
+                } else if (Date.now() - t0 > 8000) {
+                    clearInterval(wait);
+                    w.innerHTML = '<div class="spin3d-loading">3D indispon&iacute;vel</div>';
+                }
+            }, 150);
+        }
+    } else if (isVideo(src)) {
+        galleryMain.classList.add("video-mode");
+        galleryMain.classList.remove("is-photo");
+        galleryMedia.innerHTML = '<video src="' + src + '" autoplay muted loop playsinline ' +
+            'disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>';
+    } else {
+        galleryMain.classList.remove("video-mode");
+        galleryMain.classList.toggle("is-photo", isPhoto(src));
+        galleryMedia.innerHTML = '<img src="' + src + '" alt="Capa ' + product.name + '">';
+    }
+    document.querySelectorAll(".gallery-dot").forEach(function (d, di) {
+        d.classList.toggle("active", di === i);
+    });
+    current = i;
+}
+
+function goTo(i) {
+    var total = product.images.length;
+    renderSlide((i + total) % total);
+}
+
+if (product.images.length > 1) {
+    product.images.forEach(function (src, i) {
+        var dot = document.createElement("button");
+        dot.className = "gallery-dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Foto " + (i + 1));
+        dot.addEventListener("click", function () { goTo(i); });
+        dotsWrap.appendChild(dot);
+    });
+    document.getElementById("gallery-prev").addEventListener("click", function () { goTo(current - 1); });
+    document.getElementById("gallery-next").addEventListener("click", function () { goTo(current + 1); });
+} else {
+    document.getElementById("gallery-prev").style.display = "none";
+    document.getElementById("gallery-next").style.display = "none";
+}
+
+renderSlide(0);
+
+/* ===== BOTÃO SHOPIFY (preço + modelo + comprar) ===== */
+(function () {
+    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
+    } else { loadScript(); }
+    function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+    }
+    function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+            domain: 'qgze5e-ae.myshopify.com',
+            storefrontAccessToken: '00947491cc3aa75fc79abe82ec046857',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+            ui.createComponent('product', {
+                id: product.shopifyId,
+                node: document.getElementById('pdp-buy'),
+                moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+                options: {
+                    "product": {
+                        "iframe": false,
+                        "styles": {
+                            "product": { "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0", "margin-bottom": "0" } },
+                            "title": { "display": "none" },
+                            "price": {
+                                "font-family": "'Playfair Display', serif",
+                                "font-size": "22px",
+                                "color": "#95611A"
+                            },
+                            "button": {
+                                "font-family": "'Inter', sans-serif",
+                                "font-size": "12px",
+                                "font-weight": "500",
+                                "letter-spacing": "0.14em",
+                                "text-transform": "uppercase",
+                                ":hover": { "background-color": "#805317" },
+                                "background-color": "#95611A",
+                                ":focus": { "background-color": "#805317" },
+                                "border-radius": "25px",
+                                "padding": "14px 28px",
+                                "width": "100%"
+                            }
+                        },
+                        "contents": { "img": false, "title": false, "price": false, "description": false, "button": true },
+                        "text": { "button": "Comprar" }
+                    },
+                    "cart": {
+                        "styles": {
+                            "button": {
+                                "font-weight": "500",
+                                ":hover": { "background-color": "#805317" },
+                                "background-color": "#95611A",
+                                ":focus": { "background-color": "#805317" },
+                                "border-radius": "14px"
+                            }
+                        },
+                        "text": {
+                            "title": "Carrinho", "total": "Subtotal",
+                            "empty": "O seu carrinho está vazio.",
+                            "notice": "Os custos de envio e códigos de desconto são adicionados no checkout.",
+                            "button": "Finalizar"
+                        },
+                        "popup": false
+                    },
+                    "toggle": {
+                        "styles": {
+                            "toggle": {
+                                "font-weight": "500",
+                                "background-color": "#95611A",
+                                ":hover": { "background-color": "#805317" },
+                                ":focus": { "background-color": "#805317" }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // ===== CARRINHO na barra de navegação =====
+            var navCart = document.getElementById('nav-cart');
+            var cartCount = document.getElementById('cart-count');
+            // o carrinho é criado pelo SDK ao criar o produto, já com as opções de btnOpts;
+            // criar um segundo aqui daria um carrinho vazio e sem tradução
+            function getCart() {
+                return (ui && ui.components && ui.components.cart && ui.components.cart[0]) || null;
+            }
+            function clickNativeToggle() {
+                var frames = document.querySelectorAll('iframe.shopify-buy-frame, iframe.shopify-buy-frame--toggle');
+                for (var i = 0; i < frames.length; i++) {
+                    try {
+                        var doc = frames[i].contentDocument || (frames[i].contentWindow && frames[i].contentWindow.document);
+                        if (!doc) { continue; }
+                        var btn = doc.querySelector('.shopify-buy__cart-toggle') ||
+                                  doc.querySelector('.shopify-buy__btn--cart-tab') ||
+                                  doc.querySelector('button');
+                        if (btn) { btn.click(); return true; }
+                    } catch (err) {}
+                }
+                return false;
+            }
+            function openCart() {
+                var c = getCart();
+                if (c && typeof c.open === 'function') { try { c.open(); return; } catch (e) {} }
+                if (c && c.toggle && typeof c.toggle.open === 'function') { try { c.toggle.open(); return; } catch (e) {} }
+                clickNativeToggle();
+            }
+            if (navCart) {
+                // stopPropagation é essencial: o SDK fecha o carrinho em qualquer clique
+                // que borbulhe até ao document vindo de fora do carrinho — incluindo este
+                navCart.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openCart(); });
+            }
+            function updateCount() {
+                try {
+                    var c = getCart();
+                    var items = c && c.model && c.model.lineItems ? c.model.lineItems : [];
+                    var total = items.reduce(function (n, it) { return n + (it.quantity || 0); }, 0);
+                    if (cartCount) {
+                        cartCount.textContent = total;
+                        cartCount.classList.toggle('show', total > 0);
+                    }
+                } catch (err) {}
+            }
+            updateCount();
+            setInterval(updateCount, 1000);
+        });
+    }
+})();
+</script>
+
+<!-- Seletor de modelo: mostra "Selecionar modelo" até o cliente escolher -->
+<script>
+(function () {
+    function setupModelPlaceholders() {
+        document.querySelectorAll('.buy-btn-wrap').forEach(function (wrap) {
+            if (!wrap.__phInit) {
+                wrap.__phInit = true;
+                wrap.addEventListener('change', function (e) {
+                    if (e.target && e.target.tagName === 'SELECT') { wrap.__picked = true; }
+                }, true);
+                wrap.addEventListener('click', function (e) {
+                    var btn = e.target && e.target.closest ? e.target.closest('.shopify-buy__btn') : null;
+                    if (!btn) { return; }
+                    var sel = wrap.querySelector('select');
+                    if (sel && sel.value === '__ph__') {
+                        e.preventDefault(); e.stopPropagation();
+                        sel.focus();
+                    }
+                }, true);
+            }
+            if (wrap.__picked) { return; }
+            var sel = wrap.querySelector('select');
+            if (sel && !sel.querySelector('option[value="__ph__"]')) {
+                var opt = document.createElement('option');
+                opt.value = '__ph__';
+                opt.textContent = 'Selecionar modelo';
+                opt.disabled = true; opt.hidden = true;
+                sel.insertBefore(opt, sel.firstChild);
+                sel.value = '__ph__';
+            }
+        });
+    }
+    setInterval(setupModelPlaceholders, 400);
+})();
+</script>
+
+<!-- ===== VISUALIZADOR 3D (Three.js) ===== -->
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+var state = null;
+
+/* recorta a capa da foto (ignora o fundo transparente) e devolve
+   o canvas recortado, a proporção e a cor média da borda da capa */
+function cropToCase(img) {
+    var maxSide = 1024;
+    var s = Math.min(1, maxSide / Math.max(img.width, img.height));
+    var c = document.createElement('canvas');
+    c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+    var ctx = c.getContext('2d');
+    ctx.drawImage(img, 0, 0, c.width, c.height);
+    var d = ctx.getImageData(0, 0, c.width, c.height).data;
+    var minX = c.width, minY = c.height, maxX = 0, maxY = 0, x, y;
+    for (y = 0; y < c.height; y++) {
+        for (x = 0; x < c.width; x++) {
+            if (d[(y * c.width + x) * 4 + 3] > 40) {
+                if (x < minX) minX = x; if (x > maxX) maxX = x;
+                if (y < minY) minY = y; if (y > maxY) maxY = y;
+            }
+        }
+    }
+    if (maxX <= minX || maxY <= minY) { minX = 0; minY = 0; maxX = c.width - 1; maxY = c.height - 1; }
+    var w = maxX - minX + 1, h = maxY - minY + 1;
+    var out = document.createElement('canvas');
+    out.width = w; out.height = h;
+    var octx = out.getContext('2d');
+    octx.drawImage(c, minX, minY, w, h, 0, 0, w, h);
+    /* cor média numa faixa junto à borda esquerda (zona central vertical) */
+    var strip = octx.getImageData(Math.round(w * 0.06), Math.round(h * 0.3), 3, Math.round(h * 0.4)).data;
+    var r = 0, g = 0, b = 0, n = 0, i;
+    for (i = 0; i < strip.length; i += 4) {
+        if (strip[i + 3] > 200) { r += strip[i]; g += strip[i + 1]; b += strip[i + 2]; n++; }
+    }
+    var edge = n ? [r / n, g / n, b / n] : [214, 178, 168];
+    return { canvas: out, aspect: h / w, edge: edge };
+}
+
+/* interior da capa: cor da borda escurecida + marca */
+function makeBackCanvas(edge) {
+    var c = document.createElement('canvas');
+    c.width = 512; c.height = 1024;
+    var ctx = c.getContext('2d');
+    var f = 0.86; /* ligeiramente mais escuro que a borda */
+    ctx.fillStyle = 'rgb(' + Math.round(edge[0] * f) + ',' + Math.round(edge[1] * f) + ',' + Math.round(edge[2] * f) + ')';
+    ctx.fillRect(0, 0, c.width, c.height);
+    var lum = 0.299 * edge[0] + 0.587 * edge[1] + 0.114 * edge[2];
+    ctx.fillStyle = lum > 150 ? 'rgba(61, 40, 23, 0.55)' : 'rgba(245, 237, 224, 0.75)';
+    ctx.font = '500 40px "Playfair Display", Georgia, serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    try { ctx.letterSpacing = '10px'; } catch (e) {}
+    ctx.fillText('NÓMADA', c.width / 2, c.height / 2);
+    return c;
+}
+
+function roundedRect(w, h, r) {
+    var s = new THREE.Shape();
+    var x = -w / 2, y = -h / 2;
+    s.moveTo(x, y + r);
+    s.lineTo(x, y + h - r); s.quadraticCurveTo(x, y + h, x + r, y + h);
+    s.lineTo(x + w - r, y + h); s.quadraticCurveTo(x + w, y + h, x + w, y + h - r);
+    s.lineTo(x + w, y + r); s.quadraticCurveTo(x + w, y, x + w - r, y);
+    s.lineTo(x + r, y); s.quadraticCurveTo(x, y, x, y + r);
+    return s;
+}
+
+/* ShapeGeometry com UVs normalizados (0..1) para aplicar a textura certinha */
+function shapeGeoUV(shape, w, h) {
+    var g = new THREE.ShapeGeometry(shape, 28);
+    var pos = g.attributes.position, uv = g.attributes.uv, i;
+    for (i = 0; i < pos.count; i++) {
+        uv.setXY(i, pos.getX(i) / w + 0.5, pos.getY(i) / h + 0.5);
+    }
+    return g;
+}
+
+function init(container, imgSrc, stripeColor) {
+    dispose();
+    if (!container) { return; }
+    var img = new Image();
+    img.onload = function () {
+        if (!container.isConnected) { return; }
+        try { build(container, img); }
+        catch (e) {
+            container.innerHTML = '<div class="spin3d-loading">3D indisponível neste dispositivo</div>';
+        }
+    };
+    img.onerror = function () {
+        container.innerHTML = '<div class="spin3d-loading">3D indisponível</div>';
+    };
+    img.src = imgSrc;
+}
+
+function build(container, img) {
+    var crop = cropToCase(img);
+    /* proporções de uma capa real: placa fina + paredes laterais (concha oca) */
+    var W = 1, H = crop.aspect, R = 0.13;
+    var T = 0.045;      /* espessura das paredes laterais */
+    var PLATE = 0.02;   /* espessura da placa com o design */
+    var RIM = 0.07;     /* profundidade das paredes (envolvem o telemóvel) */
+
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    container.appendChild(renderer.domElement);
+
+    var scene = new THREE.Scene();
+    var pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+    var camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 0.1, 50);
+    camera.position.set(0, 0.12, H * 2.5);
+
+    var dir = new THREE.DirectionalLight(0xfff2e0, 1.1);
+    dir.position.set(2.5, 3, 4);
+    scene.add(dir);
+    scene.add(new THREE.AmbientLight(0xfff6ea, 0.25));
+
+    var edgeColor = new THREE.Color('rgb(' + Math.round(crop.edge[0]) + ',' + Math.round(crop.edge[1]) + ',' + Math.round(crop.edge[2]) + ')');
+
+    var shellMat = new THREE.MeshPhysicalMaterial({
+        color: edgeColor, roughness: 0.42,
+        clearcoat: 0.8, clearcoatRoughness: 0.3,
+        side: THREE.DoubleSide
+    });
+    var group = new THREE.Group();
+
+    /* placa fina da frente (onde vive o design) */
+    var plateGeo = new THREE.ExtrudeGeometry(roundedRect(W, H, R), {
+        depth: PLATE, bevelEnabled: true,
+        bevelThickness: 0.007, bevelSize: 0.007, bevelSegments: 3, curveSegments: 24
+    });
+    plateGeo.translate(0, 0, -PLATE / 2);
+    group.add(new THREE.Mesh(plateGeo, shellMat));
+
+    /* paredes laterais: anel oco que envolve o telemóvel (para trás da placa) */
+    var rimShape = roundedRect(W, H, R);
+    rimShape.holes.push(roundedRect(W - 2 * T, H - 2 * T, Math.max(R - T, 0.03)));
+    var rimGeo = new THREE.ExtrudeGeometry(rimShape, {
+        depth: RIM, bevelEnabled: false, curveSegments: 24
+    });
+    rimGeo.translate(0, 0, -PLATE / 2 - RIM);
+    group.add(new THREE.Mesh(rimGeo, shellMat));
+
+    /* frente: a arte real da capa */
+    var tex = new THREE.CanvasTexture(crop.canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    var frontGeo = shapeGeoUV(roundedRect(W * 0.995, H * 0.995, R), W * 0.995, H * 0.995);
+    var frontMat = new THREE.MeshPhysicalMaterial({
+        map: tex, transparent: true,
+        roughness: 0.35, clearcoat: 0.7, clearcoatRoughness: 0.25
+    });
+    var front = new THREE.Mesh(frontGeo, frontMat);
+    front.position.z = PLATE / 2 + 0.009;
+    group.add(front);
+
+    /* interior da capa (fundo do "tabuleiro", com a marca) */
+    var backTex = new THREE.CanvasTexture(makeBackCanvas(crop.edge));
+    backTex.colorSpace = THREE.SRGBColorSpace;
+    var innerW = W - 2 * T, innerH = H - 2 * T;
+    var backGeo = shapeGeoUV(roundedRect(innerW, innerH, Math.max(R - T, 0.03)), innerW, innerH);
+    var back = new THREE.Mesh(backGeo, new THREE.MeshPhysicalMaterial({
+        map: backTex, roughness: 0.55, clearcoat: 0.25, clearcoatRoughness: 0.35
+    }));
+    back.rotation.y = Math.PI;
+    back.position.z = -PLATE / 2 - 0.003;
+    group.add(back);
+
+    scene.add(group);
+
+    var controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.rotateSpeed = 0.9;
+    controls.enablePan = false;
+    controls.minDistance = H * 1.4;
+    controls.maxDistance = H * 3.2;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2.2;
+
+    /* pausa a rotação automática enquanto o cliente mexe; retoma passado 3,5 s */
+    var idleTimer = null;
+    controls.addEventListener('start', function () {
+        controls.autoRotate = false;
+        if (idleTimer) { clearTimeout(idleTimer); }
+    });
+    controls.addEventListener('end', function () {
+        idleTimer = setTimeout(function () { controls.autoRotate = true; }, 3500);
+    });
+
+    var raf = null;
+    function loop() {
+        raf = requestAnimationFrame(loop);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    loop();
+
+    var ro = new ResizeObserver(function () {
+        if (!container.isConnected) { return; }
+        var w = container.clientWidth, h = container.clientHeight;
+        if (w < 2 || h < 2) { return; }
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+    });
+    ro.observe(container);
+
+    state = {
+        dispose: function () {
+            if (raf) { cancelAnimationFrame(raf); }
+            if (idleTimer) { clearTimeout(idleTimer); }
+            ro.disconnect();
+            controls.dispose();
+            pmrem.dispose();
+            scene.traverse(function (o) {
+                if (o.geometry) { o.geometry.dispose(); }
+                if (o.material) {
+                    if (o.material.map) { o.material.map.dispose(); }
+                    o.material.dispose();
+                }
+            });
+            renderer.dispose();
+            if (renderer.domElement && renderer.domElement.parentNode) {
+                renderer.domElement.parentNode.removeChild(renderer.domElement);
+            }
+        }
+    };
+}
+
+function dispose() {
+    if (state) { state.dispose(); state = null; }
+}
+
+window.NomadaSpin = { init: init, dispose: dispose };
+</script>
+
+<script>
+(function () {
+    /* ===== CONFIGURAÇÃO DA NEWSLETTER =====
+       mode 'storefront' : chama a Shopify diretamente com o token PÚBLICO abaixo. Ativo agora.
+                           Usa a versão 'unstable' porque customerEmailMarketingSubscribe ainda
+                           não existe em nenhuma versão estável da Storefront API.
+       mode 'endpoint'   : chama o Worker serverless, que usa a Admin API (estável). Produção.
+
+       PARA MIGRAR PARA PRODUÇÃO (ver newsletter-worker/README.md):
+         1. põe o URL do Worker em endpointUrl
+         2. muda mode para 'endpoint'
+       Mais nada muda. Repete nos dois ficheiros: index.html e produto.html.
+
+       O token abaixo é um Storefront token PÚBLICO — pode estar no HTML sem risco.
+       NUNCA colocar aqui um Admin API token, API key ou secret. */
+    var NOMADA_NEWSLETTER = {
+        mode: 'storefront',
+        domain: 'qgze5e-ae.myshopify.com',
+        storefrontAccessToken: '00947491cc3aa75fc79abe82ec046857',
+        apiVersion: 'unstable',
+        endpointUrl: ''
+    };
+
+    /* Subscreve o email. Resolve em caso de sucesso, lança Error em qualquer falha. */
+    async function nomadaSubscribe(email) {
+        var cfg = NOMADA_NEWSLETTER;
+
+        if (cfg.mode === 'endpoint') {
+            if (!cfg.endpointUrl) { throw new Error('Endpoint da newsletter não configurado.'); }
+            var epRes = await fetch(cfg.endpointUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            });
+            var epData = await epRes.json().catch(function () { return {}; });
+            if (!epRes.ok || epData.ok !== true) {
+                throw new Error(epData.error || 'Não foi possível concluir a subscrição.');
+            }
+            return;
+        }
+
+        if (!cfg.domain || !cfg.storefrontAccessToken) {
+            throw new Error('Storefront da newsletter não configurada.');
+        }
+        var res = await fetch('https://' + cfg.domain + '/api/' + cfg.apiVersion + '/graphql.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': cfg.storefrontAccessToken
+            },
+            body: JSON.stringify({
+                query: 'mutation customerEmailMarketingSubscribe($email: String!) { customerEmailMarketingSubscribe(email: $email) { customerUserErrors { field message code } } }',
+                variables: { email: email }
+            })
+        });
+        var result = await res.json().catch(function () { return {}; });
+        var payload = result.data && result.data.customerEmailMarketingSubscribe;
+        var userErrors = (payload && payload.customerUserErrors) || [];
+
+        /* Sucesso pela via principal. */
+        if (res.ok && payload && !userErrors.length) { return; }
+
+        /* Email inválido/recusado: é erro do utilizador, não vale a pena tentar a reserva. */
+        if (userErrors.length) { throw new Error(userErrors[0].message); }
+
+        /* A mutation vive só na versão 'unstable' da Storefront API. Se a Shopify a
+           alterar ou remover, esta chamada passa a falhar em silêncio e perderíamos
+           todos os subscritores. A via de reserva usa uma versão ESTÁVEL. */
+        return await nomadaSubscribeReserva(email, cfg);
+    }
+
+    /* Via de reserva, em versão estável: cria o cliente já com consentimento de
+       marketing. A password é aleatória e nunca é usada — serve só porque o
+       customerCreate a exige. Email já existente conta como já subscrito. */
+    async function nomadaSubscribeReserva(email, cfg) {
+        var bytes = new Uint8Array(18);
+        window.crypto.getRandomValues(bytes);
+        var pwd = 'Nm-' + Array.prototype.map.call(bytes, function (b) {
+            return ('0' + b.toString(16)).slice(-2);
+        }).join('') + '!7';
+
+        var res = await fetch('https://' + cfg.domain + '/api/2026-07/graphql.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': cfg.storefrontAccessToken
+            },
+            body: JSON.stringify({
+                query: 'mutation c($input: CustomerCreateInput!) { customerCreate(input: $input) ' +
+                       '{ customer { id } customerUserErrors { field message code } } }',
+                variables: { input: { email: email, password: pwd, acceptsMarketing: true } }
+            })
+        });
+        var out = await res.json().catch(function () { return {}; });
+        var pl = out.data && out.data.customerCreate;
+        var errs = (pl && pl.customerUserErrors) || [];
+        if (pl && pl.customer) { return; }
+        var jaExiste = errs.some(function (er) {
+            return er.code === 'TAKEN' || /already|taken/i.test(er.message || '');
+        });
+        if (jaExiste) { return; }
+        throw new Error((errs[0] && errs[0].message) || 'Não foi possível concluir a subscrição.');
+    }
+
+    var newsletter = document.getElementById('newsletter-popup');
+    if (!newsletter) return;
+    var input = newsletter.querySelector('input');
+    var form = newsletter.querySelector('form');
+    var button = form.querySelector('button[type="submit"]');
+    var error = newsletter.querySelector('.newsletter-error');
+    var subscribed = false;
+    var alreadyShown = false;
+    try {
+        subscribed = localStorage.getItem('nomada_newsletter_shopify_subscribed') === 'true';
+        alreadyShown = localStorage.getItem('nomada_newsletter_shown') === 'true';
+    } catch (e) {}
+    function closeNewsletter() {
+        newsletter.classList.remove('is-visible');
+        newsletter.setAttribute('aria-hidden', 'true');
+    }
+    /* só aparece uma vez por visitante (primeira visita ao site, qualquer página) */
+    if (!subscribed && !alreadyShown) setTimeout(function () {
+        newsletter.classList.add('is-visible');
+        newsletter.setAttribute('aria-hidden', 'false');
+        input.focus();
+        try { localStorage.setItem('nomada_newsletter_shown', 'true'); } catch (e) {}
+    }, 5000);
+    newsletter.querySelector('.newsletter-close').addEventListener('click', closeNewsletter);
+    newsletter.addEventListener('click', function (e) { if (e.target === newsletter) closeNewsletter(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && newsletter.classList.contains('is-visible')) closeNewsletter(); });
+    function showNewsletterError(message) {
+        error.textContent = message;
+        newsletter.classList.add('has-error');
+    }
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        newsletter.classList.remove('has-error');
+        if (!input.checkValidity()) { input.reportValidity(); return; }
+        /* RGPD: sem consentimento explícito não há subscrição */
+        var consent = newsletter.querySelector('.newsletter-consent-box');
+        if (consent && !consent.checked) {
+            showNewsletterError('Para receberes a newsletter precisas de aceitar a Política de Privacidade.');
+            return;
+        }
+        button.disabled = true;
+        button.textContent = 'A subscrever...';
+        try {
+            await nomadaSubscribe(input.value.trim());
+            /* só aqui, depois da Shopify confirmar, é que marcamos como subscrito */
+            newsletter.classList.add('is-subscribed');
+            try { localStorage.setItem('nomada_newsletter_shopify_subscribed', 'true'); } catch (storageError) {}
+        } catch (err) {
+            showNewsletterError('Não foi possível subscrever neste momento. Confirma o e-mail e tenta novamente.');
+            button.disabled = false;
+            button.textContent = 'Subscrever newsletter';
+        }
+    });
+})();
+</script>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-text">
+        Usamos cookies essenciais para o funcionamento do site e, com o teu consentimento, cookies de análise para melhorar a tua experiência.
+        Consulta a <a href="cookies.html">Política de Cookies</a>.
+    </div>
+    <div class="cookie-actions">
+        <button class="cookie-btn cookie-reject" id="cookie-reject">Rejeitar</button>
+        <button class="cookie-btn cookie-accept" id="cookie-accept">Aceitar</button>
+    </div>
+</div>
+<script>
+(function () {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    var choice = null;
+    try { choice = localStorage.getItem('nomada_cookie_consent'); } catch (e) {}
+    if (!choice) { banner.classList.add('show'); }
+    function setConsent(value) {
+        try { localStorage.setItem('nomada_cookie_consent', value); } catch (e) {}
+        banner.classList.remove('show');
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () { setConsent('accepted'); });
+    document.getElementById('cookie-reject').addEventListener('click', function () { setConsent('rejected'); });
+})();
+</script>
+
+</body>
+</html>

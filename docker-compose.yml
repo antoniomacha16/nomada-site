@@ -1,0 +1,11 @@
+services:
+  nomada-site:
+    build: .
+    container_name: nomada-site
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.nomada-site.entrypoints=websecure
+      - traefik.http.routers.nomada-site.rule=Host(`xn--nmada-0ta.pt`) || Host(`www.xn--nmada-0ta.pt`)
+      - traefik.http.routers.nomada-site.tls.certresolver=letsencrypt
+      - traefik.http.services.nomada-site.loadbalancer.server.port=80

@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NÓMADA</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <meta name="theme-color" content="#3D2817">
+    <meta name="description" content="Capas de telemóvel com frases, humor e cultura portuguesa. Feitas com carinho, entregues em casa.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://xn--nmada-0ta.pt/">
+    <!-- Open Graph: pré-visualização ao partilhar no Instagram/WhatsApp. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NÓMADA">
+    <meta property="og:title" content="NÓMADA · Capas de telemóvel com humor português">
+    <meta property="og:description" content="Capas com frases, humor e cultura portuguesa. Design original, feito em Portugal.">
+    <meta property="og:url" content="https://xn--nmada-0ta.pt/">
+    <meta property="og:image" content="https://xn--nmada-0ta.pt/assets/produtos/case-ferias.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NÓMADA",
+        "url": "https://xn--nmada-0ta.pt/",
+        "logo": "https://xn--nmada-0ta.pt/assets/favicon.png",
+        "email": "suporte.nomada.pt@gmail.com",
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "url": "https://xn--nmada-0ta.pt/produto.html?p=portuguesa" },
+            { "@type": "ListItem", "position": 2, "url": "https://xn--nmada-0ta.pt/produto.html?p=girldinner" },
+            { "@type": "ListItem", "position": 3, "url": "https://xn--nmada-0ta.pt/produto.html?p=nemera" },
+            { "@type": "ListItem", "position": 4, "url": "https://xn--nmada-0ta.pt/produto.html?p=redflags" },
+            { "@type": "ListItem", "position": 5, "url": "https://xn--nmada-0ta.pt/produto.html?p=5minutos" },
+            { "@type": "ListItem", "position": 6, "url": "https://xn--nmada-0ta.pt/produto.html?p=paris" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "As capas estão sempre disponíveis?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Não, cada capa NÓMADA é uma edição limitada, pensada nos momentos do dia-a-dia. Quando esgota, nunca mais vai voltar a ser lançada." }
+            },
+            {
+                "@type": "Question",
+                "name": "Quanto tempo demora a entrega?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Cada capa é feita por encomenda, especialmente para ti. Entre produção e envio, recebes normalmente em 7 a 12 dias úteis. Enviamos para todo o país." }
+            },
+            {
+                "@type": "Question",
+                "name": "O material é resistente?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Sim. As capas têm uma qualidade acima da média com uma impressão de alta qualidade e proteção pensada para o dia-a-dia." }
+            },
+            {
+                "@type": "Question",
+                "name": "Como posso falar convosco?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Manda-nos um email para suporte.nomada.pt@gmail.com, respondemos o mais rápido possível." }
+            }
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5EDE0;
+            --cream-light: #FAF6EE;
+            --brown-deep: #3D2817;
+            --brown-medium: #715942;
+            --brown-muted: #81674E;
+            --gold: #95611A;
+            --gold-hover: #805317;
+            --rose: #EBC6C4;
+            --sage: #C4D2B8;
+            --mustard: #E8D6A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* overflow-x fica no html, não no body: no body faz do body um contentor
+           de scroll à parte e o iOS trava o scroll a meio da página */
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            background: var(--cream);
+            color: var(--brown-deep);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .label {
+            text-transform: uppercase; letter-spacing: 0.24em;
+            font-size: 11px; font-weight: 500; color: var(--brown-medium);
+        }
+
+        /* BARRA DE ANÚNCIO */
+        .announce-bar {
+            background: var(--brown-deep); color: var(--cream);
+            height: 34px; overflow: hidden;
+            /* encolhe o suficiente para a frase mais longa caber num telemóvel */
+            font-size: clamp(8.5px, 2.5vw, 12px); letter-spacing: 0.04em; font-weight: 400;
+        }
+        .announce-track {
+            display: flex; flex-direction: column;
+            /* carrossel de baixo para cima: 3 mensagens + cópia da 1ª no fim,
+               para o salto de volta ao início ser invisível */
+            animation: announceRoll 15s infinite;
+        }
+        .announce-track span {
+            height: 34px; flex: 0 0 34px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 16px; text-align: center;
+            white-space: nowrap;
+        }
+        @keyframes announceRoll {
+            0%, 28%    { transform: translateY(0); }
+            33%, 61%   { transform: translateY(-34px); }
+            66%, 94%   { transform: translateY(-68px); }
+            100%       { transform: translateY(-102px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .announce-track { animation: none; }
+        }
+
+        /* NAV */
+        nav {
+            padding: 13px 0;
+            border-bottom: 1px solid transparent;
+            position: sticky; top: 0; z-index: 100;
+            background: transparent;
+            backdrop-filter: none;
+            transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+        }
+        nav.scrolled {
+            border-bottom: 1px solid rgba(61, 40, 23, 0.08);
+            background: var(--cream);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 6px 24px rgba(61, 40, 23, 0.12);
+        }
+        nav .container {
+            display: flex; align-items: center; position: relative;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px; letter-spacing: 0.3em;
+            color: #7a4900; font-weight: 500;
+            text-decoration: none;
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
+        /* painel do menu (abre por baixo do hambúrguer) */
+        .nav-links {
+            position: absolute; top: calc(100% + 14px); left: 24px;
+            display: none; flex-direction: column;
+            min-width: 210px; padding: 8px;
+            background: var(--cream-light);
+            border: 1px solid rgba(61, 40, 23, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 14px 40px rgba(61, 40, 23, 0.16);
+            z-index: 300;
+        }
+        nav.nav-open .nav-links { display: flex; animation: panelIn 0.22s ease; }
+        .nav-links a {
+            color: var(--brown-deep); text-decoration: none;
+            font-size: 14.5px; font-weight: 400; letter-spacing: 0.06em;
+            padding: 11px 14px; border-radius: 10px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-links a:hover { background: rgba(149, 97, 26, 0.1); color: var(--gold); }
+
+        /* grupo da direita: lupa + carrinho */
+        .nav-right { display: flex; align-items: center; gap: 22px; margin-left: auto; margin-right: 40px; }
+        /* Lupa de pesquisa */
+        /* flex em vez de bloco: o botão inline-flex assentava na linha de base e
+           o espaço do descendente empurrava a lupa ~1px acima do carrinho */
+        .nav-search { position: relative; display: flex; align-items: center; }
+        .search-toggle {
+            background: none; border: none; cursor: pointer; padding: 0;
+            display: inline-flex; align-items: center; color: var(--brown-deep);
+            transition: color 0.2s;
+            margin-top: 5px; /* desce a lupa para o nível do carrinho */
+        }
+        .search-toggle:hover { color: var(--gold); }
+        /* a lupa preenche mais o seu quadrado do que a saca; 20px iguala-as visualmente */
+        .search-toggle svg { width: 20px; height: 20px; }
+        .search-panel {
+            position: absolute; top: calc(100% + 14px); right: -8px;
+            width: 290px; padding: 14px;
+            background: var(--cream-light);
+            border: 1px solid rgba(61, 40, 23, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 14px 40px rgba(61, 40, 23, 0.16);
+            display: none; z-index: 300;
+        }
+        .search-panel.open { display: block; animation: panelIn 0.22s ease; }
+        @keyframes panelIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: none; }
+        }
+        .search-panel input {
+            width: 100%;
+            font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300;
+            color: var(--brown-deep); background: var(--cream);
+            border: 1px solid rgba(61, 40, 23, 0.15); border-radius: 12px;
+            padding: 11px 14px; outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-panel input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(149, 97, 26, 0.15);
+        }
+        .search-results { margin-top: 6px; }
+        .search-results a {
+            display: block; padding: 10px 12px;
+            color: var(--brown-deep); text-decoration: none;
+            font-size: 14px; border-radius: 10px;
+            transition: background 0.15s, color 0.15s;
+        }
+        /* Saltar navegação — só aparece quando recebe foco pelo teclado */
+        .skip-link {
+            position: absolute; left: 12px; top: -60px; z-index: 3000;
+            background: var(--gold); color: var(--cream);
+            padding: 12px 20px; border-radius: 0 0 12px 12px;
+            font-size: 13px; text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 0; }
+        .search-results a:hover,
+        .search-results a:focus-visible { background: rgba(149, 97, 26, 0.1); color: var(--gold); }
+        /* quem percorre a pesquisa pelo teclado tem de ver onde está */
+        .search-results a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+        .search-empty {
+            padding: 10px 12px; font-size: 13px; color: var(--brown-muted);
+        }
+        .search-results a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+        .search-kind {
+            font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--brown-muted);
+        }
+        /* Ícone do carrinho */
+        .nav-cart {
+            position: relative; display: inline-flex; align-items: center;
+            color: var(--brown-deep);
+            transition: color 0.2s;
+        }
+        .nav-cart:hover { color: var(--gold); }
+        .nav-cart svg { width: 23px; height: 23px; }
+        .cart-count {
+            position: absolute; top: -7px; right: -9px;
+            min-width: 17px; height: 17px; padding: 0 4px;
+            border-radius: 9px; background: var(--gold); color: var(--cream);
+            font-size: 10px; font-weight: 600; line-height: 17px; text-align: center;
+            display: none;
+        }
+        .cart-count.show { display: block; animation: countPop 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+        @keyframes countPop {
+            from { transform: scale(0.4); }
+            to { transform: scale(1); }
+        }
+        /* botão flutuante do carrinho do Shopify: fora do ecrã mas funcional (usamos o da barra) */
+        .shopify-buy-frame--toggle,
+        .shopify-buy__cart-toggle-wrapper,
+        #shopify-buy-cart-toggle {
+            position: fixed !important; left: -9999px !important; top: 0 !important;
+            opacity: 0 !important;
+        }
+
+        /* Hambúrguer — menu com barras, à esquerda (desktop e telemóvel) */
+        .nav-toggle {
+            display: block; background: none; border: none; cursor: pointer;
+            width: 26px; height: 20px; position: relative; padding: 0; z-index: 200;
+            margin-left: 0;
+        }
+        .nav-toggle span {
+            display: block; position: absolute; height: 2px; width: 100%;
+            background: #7a4900; left: 0; border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease;
+        }
+        .nav-toggle span:nth-child(1) { top: 0; }
+        .nav-toggle span:nth-child(2) { top: 9px; }
+        .nav-toggle span:nth-child(3) { top: 18px; }
+        nav.nav-open .nav-toggle span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+        nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+        nav.nav-open .nav-toggle span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+        /* Animação de entrada ao fazer scroll (desktop + telemóvel) */
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.in-view { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* Entrada suave dos elementos do hero ao carregar a página */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: none; }
+        }
+        .hero-text .hero-label,
+        .hero-text h1,
+        .hero-text .cta-desktop {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-text .hero-label { animation-delay: 0.1s; }
+        .hero-text h1 { animation-delay: 0.25s; }
+        .hero-text .cta-desktop { animation-delay: 0.45s; }
+
+        /* Revelação escalonada dos cartões de produto */
+        .products-grid .product-card:nth-child(1) { transition-delay: 0.00s; }
+        .products-grid .product-card:nth-child(2) { transition-delay: 0.08s; }
+        .products-grid .product-card:nth-child(3) { transition-delay: 0.16s; }
+        .products-grid .product-card:nth-child(4) { transition-delay: 0.24s; }
+        .products-grid .product-card:nth-child(5) { transition-delay: 0.32s; }
+        .products-grid .product-card:nth-child(6) { transition-delay: 0.40s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-text .hero-label,
+            .hero-text h1,
+            .hero-text .cta-desktop { opacity: 1; animation: none; }
+        }
+
+        /* HERO */
+        .hero { padding: 48px 0 100px; position: relative; }
+
+        /* Seta "scroll para baixo" */
+        .scroll-down {
+            position: absolute; bottom: 10px; left: 50%;
+            width: 44px; height: 44px; margin-left: -22px;
+            display: flex; align-items: center; justify-content: center;
+            color: #7a4900; text-decoration: none;
+            border-radius: 50%;
+            animation: scrollBounce 1.8s ease-in-out infinite;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .scroll-down svg { width: 30px; height: 30px; }
+        .scroll-down.hidden { opacity: 0; visibility: hidden; }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(9px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-down { animation: none; }
+        }
+        .hero .container {
+            display: grid; grid-template-columns: 1.1fr 1fr;
+            gap: 60px; align-items: center;
+        }
+        .hero-label { margin-bottom: 28px; display: inline-block; }
+        .hero h1 {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: clamp(38px, 5.5vw, 68px); line-height: 1.08;
+            letter-spacing: -0.02em; margin-bottom: 28px;
+        }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero-sub {
+            font-size: 16px; color: var(--brown-medium);
+            max-width: 440px; margin-bottom: 44px; line-height: 1.7;
+        }
+        /* botão "Ver a coleção" ligeiramente mais abaixo do título */
+        .hero .cta-desktop { margin-top: 16px; }
+        .cta-btn {
+            position: relative; overflow: hidden;
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--gold); color: var(--cream);
+            padding: 16px 28px; text-decoration: none;
+            font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+            font-weight: 500; border-radius: 25px;
+            box-shadow: 0 6px 18px rgba(149, 97, 26, 0.28);
+            transition: background 0.25s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease;
+        }
+        /* brilho que atravessa o botão ao passar o rato */
+        .cta-btn::before {
+            content: ""; position: absolute; top: 0; left: -80%;
+            width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: skewX(-20deg);
+        }
+        .cta-btn:hover {
+            background: var(--gold-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(149, 97, 26, 0.38);
+        }
+        .cta-btn:hover::before { animation: ctaShine 0.7s ease; }
+        .cta-btn:active { transform: translateY(-1px); }
+        .cta-arrow { display: inline-block; transition: transform 0.25s ease; }
+        .cta-btn:hover .cta-arrow { transform: translateX(5px); }
+        /* botão da coleção só para telemóvel (aparece depois da foto) */
+        .cta-mobile { display: none; }
+        @keyframes ctaShine {
+            from { left: -80%; }
+            to { left: 130%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .cta-btn:hover { transform: none; }
+            .cta-btn::before { display: none; }
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex; justify-content: center; align-items: center;
+            height: 460px;
+        }
+        /* Baralho — 4 capas empilhadas em leque */
+        .hero-deck {
+            position: relative;
+            width: 240px; height: 400px;
+            margin-left: -24px;
+            animation: heroFloat 6s ease-in-out 1.2s infinite;
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-deck { animation: none; }
+        }
+        .hero-deck-item {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            transform-origin: bottom center;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .hero-deck-item img {
+            width: 100%; max-width: 240px; height: auto;
+            filter: drop-shadow(0 8px 18px rgba(61, 40, 23, 0.14));
+        }
+        /* leque ABERTO — estado por defeito (após carregar a página) */
+        .hero-deck-item:nth-child(1) { transform: rotate(-24deg) translateX(-96px); z-index: 1; }
+        .hero-deck-item:nth-child(2) { transform: rotate(-14.4deg) translateX(-58px); z-index: 2; }
+        .hero-deck-item:nth-child(3) { transform: rotate(-4.8deg) translateX(-19px); z-index: 3; }
+        .hero-deck-item:nth-child(4) { transform: rotate(4.8deg) translateX(19px); z-index: 4; }
+        .hero-deck-item:nth-child(5) { transform: rotate(14.4deg) translateX(58px); z-index: 5; }
+        .hero-deck-item:nth-child(6) { transform: rotate(24deg) translateX(96px); z-index: 6; }
+
+        /* leque FECHADO/empilhado — no arranque (antes de abrir) */
+        .hero-deck.is-closed .hero-deck-item:nth-child(1) { transform: rotate(-5deg) translateX(-12px); }
+        .hero-deck.is-closed .hero-deck-item:nth-child(2) { transform: rotate(-3deg) translateX(-7px); }
+        .hero-deck.is-closed .hero-deck-item:nth-child(3) { transform: rotate(-1deg) translateX(-2px); }
+        .hero-deck.is-closed .hero-deck-item:nth-child(4) { transform: rotate(1deg) translateX(2px); }
+        .hero-deck.is-closed .hero-deck-item:nth-child(5) { transform: rotate(3deg) translateX(7px); }
+        .hero-deck.is-closed .hero-deck-item:nth-child(6) { transform: rotate(5deg) translateX(12px); }
+
+        /* fecha ao passar o rato — só em ecrãs com rato (não no telemóvel) */
+        @media (hover: hover) {
+            .hero-visual:hover .hero-deck-item:nth-child(1) { transform: rotate(-5deg) translateX(-12px); }
+            .hero-visual:hover .hero-deck-item:nth-child(2) { transform: rotate(-3deg) translateX(-7px); }
+            .hero-visual:hover .hero-deck-item:nth-child(3) { transform: rotate(-1deg) translateX(-2px); }
+            .hero-visual:hover .hero-deck-item:nth-child(4) { transform: rotate(1deg) translateX(2px); }
+            .hero-visual:hover .hero-deck-item:nth-child(5) { transform: rotate(3deg) translateX(7px); }
+            .hero-visual:hover .hero-deck-item:nth-child(6) { transform: rotate(5deg) translateX(12px); }
+        }
+
+        @media (max-width: 900px) {
+            .hero { padding-top: 28px; }
+            .hero .container { gap: 12px; }
+            .hero-text { margin-bottom: 0; }
+            .hero-text h1 { margin-bottom: 14px; }
+            .hero-label { margin-bottom: 18px; }
+            .hero-visual { height: 300px; align-items: flex-start; }
+            /* repõe a margem: o -24px é um acerto óptico só para a grelha de
+               duas colunas do desktop; aqui o leque tem de ficar centrado */
+            .hero-deck { width: 190px; height: 310px; margin-left: 0; }
+            .hero-deck-item img { max-width: 190px; }
+            /* leque aberto (telemóvel) — mais estreito para não ficar largo demais */
+            .hero-deck-item:nth-child(1) { transform: rotate(-18deg) translateX(-52px); }
+            .hero-deck-item:nth-child(2) { transform: rotate(-10.8deg) translateX(-31px); }
+            .hero-deck-item:nth-child(3) { transform: rotate(-3.6deg) translateX(-10px); }
+            .hero-deck-item:nth-child(4) { transform: rotate(3.6deg) translateX(10px); }
+            .hero-deck-item:nth-child(5) { transform: rotate(10.8deg) translateX(31px); }
+            .hero-deck-item:nth-child(6) { transform: rotate(18deg) translateX(52px); }
+        }
+
+        /* STRIPES — faixa de cor que se dissolve no fundo (fade) */
+        .stripes {
+            height: 130px;
+            background: linear-gradient(90deg,
+                var(--rose) 0%,
+                var(--cream-light) 22%,
+                var(--sage) 42%,
+                var(--cream-light) 58%,
+                var(--mustard) 80%,
+                var(--rose) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 50%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 50%, transparent 100%);
+        }
+
+        /* PRODUCTS */
+        .products-section { padding: 100px 0; }
+        .section-head { text-align: center; margin-bottom: 72px; }
+        .section-head .label { margin-bottom: 16px; display: inline-block; }
+        .section-head h2 {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: clamp(32px, 4.5vw, 52px); letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .section-head p {
+            color: var(--brown-medium); font-size: 16px;
+            max-width: 480px; margin: 0 auto; line-height: 1.7;
+        }
+
+        .products-grid {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 36px;
+        }
+
+        .product-card {
+            width: calc(33.333% - 24px);
+            background: var(--cream-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+            position: relative;
+            display: flex; flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(61, 40, 23, 0.12);
+        }
+
+        .product-img-wrap {
+            padding: 34px 20px 20px;
+            position: relative; overflow: hidden;
+            text-align: center;
+        }
+        .product-img-wrap::before {
+            content: ""; position: absolute; inset: 0;
+            background-image: repeating-linear-gradient(
+                to right, transparent 0, transparent 22px,
+                var(--stripe-color) 22px, var(--stripe-color) 44px
+            );
+            opacity: 0.18; z-index: 0;
+        }
+        /* Selos nos cartões (Best Seller / Poucas unidades) */
+        .card-badge {
+            position: absolute; top: 14px; left: 14px; z-index: 2;
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+            padding: 6px 12px; border-radius: 20px;
+            background: var(--gold); color: var(--cream);
+            box-shadow: 0 4px 12px rgba(61, 40, 23, 0.18);
+        }
+        .card-badge.badge-stock { background: #B0563C; }
+
+        .card-rose { --stripe-color: var(--rose); }
+        .card-sage { --stripe-color: var(--sage); }
+        .card-mustard { --stripe-color: var(--mustard); }
+        .card-gold { --stripe-color: #D9B876; }
+        .card-lilac { --stripe-color: #C9BCE0; }
+        .card-coral { --stripe-color: #E8BAA8; }
+        .card-blue { --stripe-color: #ADB8BE; }
+
+        /* prazo assumido à frente, no cartão: reduz abandono e devoluções */
+        .product-ship {
+            margin: 0 0 12px; font-size: 11.5px; line-height: 1.4;
+            color: var(--brown-medium);
+        }
+
+        .product-img-wrap img {
+            height: 300px; width: auto; max-width: 100%; position: relative; z-index: 1;
+            filter: drop-shadow(6px 10px 20px rgba(61, 40, 23, 0.1));
+        }
+
+        .product-info {
+            padding: 28px 28px 20px;
+            border-top: 1px solid rgba(61, 40, 23, 0.05);
+            display: flex; flex-direction: column; flex: 1;
+        }
+        /* a descrição estica para alinhar preço/seletor/botão nos 3 cartões */
+        .product-info .product-desc { flex: 1; }
+        .product-name {
+            font-family: 'Shadows Into Light Two', cursive;
+            font-size: 24px; margin-bottom: 6px;
+        }
+        .product-name a {
+            color: inherit; text-decoration: none;
+            transition: color 0.2s;
+        }
+        .product-name a:hover { color: var(--gold); }
+        .product-img-link {
+            display: block; cursor: pointer;
+        }
+        .product-img-link img { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .product-img-link:hover img { transform: scale(1.04); }
+        .product-desc {
+            font-size: 13px; color: var(--brown-medium);
+            line-height: 1.65; margin-bottom: 14px;
+        }
+
+        /* Preço no cartão: atual (mais bold) + "antes" riscado */
+        .product-price {
+            display: flex; align-items: baseline; gap: 10px;
+            margin-bottom: 14px;
+        }
+        .product-price-now {
+            font-size: 17px; font-weight: 600; color: var(--brown-deep);
+        }
+        .product-price-old {
+            font-size: 13px; font-weight: 400; color: var(--brown-muted);
+            text-decoration: line-through; text-decoration-thickness: 1px;
+        }
+
+        /* Shopify Buy Button container */
+        .buy-btn-wrap {
+            min-height: 50px;
+        }
+
+        /* Override Shopify Buy Button default styles */
+        .buy-btn-wrap iframe {
+            max-width: 100% !important;
+        }
+
+        /* Seletor de modelo de telemóvel — bordas redondas, profissional */
+        .buy-btn-wrap .shopify-buy__option-select-wrapper {
+            position: relative !important;
+            margin-bottom: 12px !important;
+        }
+        .buy-btn-wrap select,
+        .buy-btn-wrap .shopify-buy__option-select__select {
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            width: 100% !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            color: var(--brown-deep) !important;
+            background-color: var(--cream-light) !important;
+            border: 1px solid rgba(61, 40, 23, 0.15) !important;
+            border-radius: 14px !important;
+            padding: 13px 42px 13px 16px !important;
+            line-height: 1.2 !important;
+            cursor: pointer !important;
+            box-shadow: none !important;
+            outline: none !important;
+            transition: border-color 0.2s, box-shadow 0.2s !important;
+            /* seta personalizada */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%233D2817' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 16px center !important;
+            background-size: 12px 8px !important;
+        }
+        .buy-btn-wrap select:hover,
+        .buy-btn-wrap .shopify-buy__option-select__select:hover {
+            border-color: var(--gold) !important;
+        }
+        .buy-btn-wrap select:focus,
+        .buy-btn-wrap .shopify-buy__option-select__select:focus {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 0 3px rgba(149, 97, 26, 0.15) !important;
+        }
+        /* esconde a seta nativa que o SDK possa injetar */
+        .buy-btn-wrap .shopify-buy__select-icon { display: none !important; }
+        /* esconder etiqueta "Size" do seletor */
+        .buy-btn-wrap .shopify-buy__option-select__label { display: none !important; }
+
+        /* Botão Comprar — repor tamanho/forma (componente sem iframe) */
+        .buy-btn-wrap .shopify-buy__product,
+        .buy-btn-wrap .shopify-buy__btn-wrapper { width: 100% !important; margin: 0 !important; }
+        .buy-btn-wrap .shopify-buy__btn {
+            display: block !important;
+            width: 100% !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: var(--cream) !important;
+            background-color: var(--gold) !important;
+            border: none !important;
+            border-radius: 25px !important;
+            padding: 14px 28px !important;
+            line-height: 1.2 !important;
+            transition: background-color 0.25s !important;
+        }
+        .buy-btn-wrap .shopify-buy__btn:hover,
+        .buy-btn-wrap .shopify-buy__btn:focus { background-color: var(--gold-hover) !important; }
+
+        /* ABOUT — fade suave de entrada e saída do fundo */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(180deg,
+                var(--cream) 0%, var(--cream-light) 16%,
+                var(--cream-light) 84%, var(--cream) 100%);
+        }
+        .about .container {
+            display: grid; grid-template-columns: 1fr 1.15fr;
+            gap: 72px; align-items: start;
+        }
+        .about h2 {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15;
+            margin-bottom: 8px;
+        }
+        .about h2 em { font-style: italic; color: var(--gold); }
+        .about-label { margin-bottom: 16px; display: inline-block; }
+        /* descrição desce para ficar ao nível dos pontos da esquerda */
+        .about-text { padding-top: 92px; }
+        .about-text p {
+            font-size: 16px; color: var(--brown-medium);
+            line-height: 1.8; margin-bottom: 16px;
+        }
+        .about-points {
+            list-style: none; margin-top: 32px;
+            display: grid; grid-template-columns: 1fr; gap: 14px;
+        }
+        .about-points li {
+            position: relative; padding-left: 22px;
+            font-size: 14px; color: var(--brown-medium); line-height: 1.5;
+        }
+        .about-points li::before {
+            content: "✓"; position: absolute; left: 0; top: 0;
+            color: var(--gold); font-weight: 600;
+        }
+        .about-points strong { color: var(--brown-deep); font-weight: 500; }
+        @media (max-width: 620px) {
+            .about-points { grid-template-columns: 1fr; }
+        }
+
+        /* FAQ — com mini fade no fim, a caminho do rodapé castanho */
+        .faq {
+            padding: 90px 0;
+            background: linear-gradient(180deg,
+                var(--cream) 0%, var(--cream) 90%, #E4D3BB 100%);
+        }
+        .faq-list {
+            max-width: 720px; margin: 0 auto;
+            display: grid; gap: 14px;
+        }
+        .faq-item {
+            background: var(--cream-light);
+            border: 1px solid rgba(61, 40, 23, 0.06);
+            border-radius: 16px; padding: 4px 24px;
+        }
+        .faq-item summary {
+            cursor: pointer; list-style: none;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            padding: 16px 0; font-size: 15px; font-weight: 400;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+"; font-size: 22px; line-height: 1; color: var(--gold);
+            transition: transform 0.25s ease; flex: 0 0 auto;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p {
+            padding: 0 0 18px; font-size: 14px; color: var(--brown-medium); line-height: 1.7;
+        }
+        .faq-item[open] p { animation: faqIn 0.3s ease; }
+        @keyframes faqIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: none; }
+        }
+        .faq-item a { color: var(--gold); }
+        @media (prefers-reduced-motion: reduce) {
+            .cart-count.show, .search-panel.open, .faq-item[open] p { animation: none; }
+        }
+
+        /* HOW */
+        .how { padding: 100px 0; }
+        .how-steps {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 48px; margin-top: 72px;
+        }
+        .step-num {
+            font-family: 'Playfair Display', serif; font-size: 48px;
+            color: var(--gold); line-height: 1; margin-bottom: 20px;
+        }
+        .step h3 {
+            font-family: 'Playfair Display', serif; font-weight: 400;
+            font-size: 22px; margin-bottom: 10px;
+        }
+        .step p { color: var(--brown-medium); font-size: 14px; line-height: 1.7; }
+
+        /* FOOTER */
+        footer {
+            padding: 20px 0 10px;
+            background: var(--brown-deep); color: var(--cream);
+        }
+        footer .container {
+            display: grid; grid-template-columns: 1fr 0.9fr 2.1fr;
+            gap: 20px; margin-bottom: 12px; align-items: start;
+        }
+        /* o logótipo do rodapé NÃO herda o posicionamento centrado da nav */
+        .footer-brand .logo {
+            position: static; transform: none;
+            color: var(--gold); margin: 0 0 4px; display: block; font-size: 16px;
+        }
+        .footer-tagline {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 12px; opacity: 0.8; max-width: 240px;
+        }
+        .footer-col h3 {
+            font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.2em;
+            color: var(--brown-muted); margin-bottom: 6px; font-weight: 500;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 3px; }
+        /* coluna Legal em 2 colunas para ocupar menos linhas */
+        .footer-col:last-child ul { columns: 3; column-gap: 22px; }
+        .footer-col:last-child li { break-inside: avoid; }
+        .footer-col a {
+            color: var(--cream); text-decoration: none; font-size: 12px;
+            opacity: 0.8; transition: opacity 0.2s;
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-bar {
+            background: var(--brown-deep);
+            border-top: 1px solid rgba(245, 237, 224, 0.08);
+        }
+        .footer-bottom {
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+            padding-top: 10px; padding-bottom: 10px;
+            font-size: 10.5px; color: var(--cream); letter-spacing: 0.06em;
+            text-align: center;
+        }
+
+        /* BANNER DE COOKIES (RGPD) */
+        .cookie-banner {
+            position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 500;
+            max-width: 760px; margin: 0 auto;
+            background: var(--brown-deep); color: var(--cream);
+            border-radius: 16px; padding: 20px 24px;
+            box-shadow: 0 16px 48px rgba(61, 40, 23, 0.28);
+            display: none;
+            flex-wrap: wrap; align-items: center; gap: 16px 24px;
+        }
+        .cookie-banner.show { display: flex; }
+        .cookie-text { flex: 1 1 320px; font-size: 13px; line-height: 1.6; }
+        .cookie-text a { color: var(--mustard); text-decoration: underline; }
+        .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cookie-btn {
+            font-family: 'Inter', sans-serif; cursor: pointer;
+            font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+            padding: 12px 22px; border-radius: 25px; border: 1px solid transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+        .cookie-accept { background: var(--gold); color: var(--cream); border: none; }
+        .cookie-accept:hover { background: var(--gold-hover); }
+        .cookie-reject { background: transparent; color: var(--cream); border: 1px solid rgba(245, 237, 224, 0.35); }
+        .cookie-reject:hover { background: rgba(245, 237, 224, 0.1); }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr; text-align: center;
+            }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            /* ordem no telemóvel: texto → foto → botão */
+            .hero-text { order: 1; }
+            .hero-visual { order: 2; margin-bottom: 28px; }
+            .cta-desktop { display: none; }
+            .cta-mobile { display: inline-flex; order: 3; justify-self: center; }
+            .hero-img { width: 260px; }
+            .products-grid { max-width: 640px; margin: 0 auto; gap: 24px; }
+            .product-card { width: calc(50% - 12px); }
+            .about .container { grid-template-columns: 1fr; text-align: center; gap: 36px; }
+            .how-steps { grid-template-columns: 1fr; }
+            footer .container { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-col:last-child ul { columns: 1; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .nav-links { gap: 20px; }
+            .stripes { height: 90px; }
+        }
+        @media (max-width: 560px) {
+            .products-grid { max-width: 400px; }
+            .product-card { width: 100%; }
+            /* telemóvel: capa maior dentro do cartão */
+            .product-img-wrap { padding: 26px 10px 14px; }
+            .product-img-wrap img { height: 340px; }
+        }
+
+        /* MENU MÓVEL (hambúrguer) */
+        @media (max-width: 768px) {
+            /* barra com uma única linha em baixo, um pouco mais baixa */
+            nav { padding: 16px 0; border-bottom: 1px solid rgba(61, 40, 23, 0.08); }
+            /* logótipo centrado, menu à esquerda, lupa + carrinho à direita */
+            nav .container { position: relative; justify-content: center; }
+            .logo { margin-left: 0; }
+            .nav-toggle {
+                display: block; position: absolute; left: 24px; right: auto;
+                top: 50%; transform: translateY(-50%);
+            }
+            .nav-right {
+                position: absolute; right: 24px; left: auto; top: 50%; transform: translateY(-50%);
+                margin: 0; gap: 16px;
+            }
+            .nav-cart svg { width: 26px; height: 26px; }
+            .search-toggle svg { width: 21px; height: 21px; }
+            .search-panel { width: min(290px, calc(100vw - 40px)); }
+            .logo { position: static; transform: none; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; right: 0;
+                display: flex; flex-direction: column; align-items: stretch;
+                gap: 0; margin-right: 0; min-width: 0; padding: 0;
+                border: none; border-radius: 0; box-shadow: none;
+                background: rgba(245, 237, 224, 0.98);
+                backdrop-filter: blur(16px);
+                max-height: 0; overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+            nav.nav-open .nav-links {
+                max-height: 60vh;
+                border-bottom: 1px solid rgba(61, 40, 23, 0.08);
+            }
+            .nav-links a {
+                padding: 16px 24px; font-size: 15px; text-align: center;
+                border-top: 1px solid rgba(61, 40, 23, 0.05);
+                opacity: 0; transform: translateY(-8px);
+                transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
+            }
+            nav.nav-open .nav-links a { opacity: 1; transform: none; }
+            nav.nav-open .nav-links a:nth-child(1) { transition-delay: 0.10s; }
+            nav.nav-open .nav-links a:nth-child(2) { transition-delay: 0.16s; }
+            nav.nav-open .nav-links a:nth-child(3) { transition-delay: 0.22s; }
+            nav.nav-open .nav-links a:nth-child(4) { transition-delay: 0.28s; }
+        }
+        /* POP-UP NEWSLETTER */
+        .newsletter-popup {
+            position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center;
+            padding: 24px; background: rgba(46, 29, 17, 0.48); opacity: 0;
+            visibility: hidden; transition: opacity .28s ease, visibility .28s ease;
+        }
+        .newsletter-popup.is-visible { opacity: 1; visibility: visible; }
+        .newsletter-dialog {
+            position: relative; width: min(100%, 470px); padding: 48px 42px 40px;
+            text-align: center; background: var(--cream); border: 1px solid rgba(61, 40, 23, .16);
+            border-radius: 18px; box-shadow: 0 22px 60px rgba(34, 21, 12, .28); transform: translateY(14px);
+            transition: transform .28s ease;
+        }
+        .newsletter-popup.is-visible .newsletter-dialog { transform: translateY(0); }
+        .newsletter-close {
+            position: absolute; top: 13px; right: 15px; border: 0; background: transparent;
+            color: var(--brown-deep); font-size: 28px; line-height: 1; cursor: pointer;
+        }
+        .newsletter-kicker { margin: 0 0 12px; color: var(--gold); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .newsletter-dialog h2 { margin: 0; color: var(--brown-deep); font-family: 'Playfair Display', serif; font-size: clamp(29px, 6vw, 38px); font-weight: 500; line-height: 1.08; }
+        .newsletter-dialog p { margin: 17px auto 25px; max-width: 340px; font-size: 14px; line-height: 1.65; }
+        .newsletter-form { display: flex; gap: 8px; }
+        .newsletter-form input { min-width: 0; flex: 1; padding: 13px; border: 1px solid rgba(61, 40, 23, .3); border-radius: 0; background: #fffdf8; color: var(--brown-deep); font: 14px 'Inter', sans-serif; }
+        .newsletter-form button { border: 0; padding: 13px 18px; background: var(--brown-deep); color: var(--cream); font: 500 11px 'Inter', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+        .newsletter-success { display: none; margin: 0; color: var(--brown-deep); }
+        .newsletter-error { display: none; margin: 14px auto 0; color: #A44432; font-size: 13px; line-height: 1.5; }
+        .newsletter-popup.has-error .newsletter-error { display: block; }
+        .newsletter-popup.is-subscribed .newsletter-form, .newsletter-popup.is-subscribed .newsletter-dialog > p { display: none; }
+        .newsletter-popup.is-subscribed .newsletter-success { display: block; }
+        /* consentimento RGPD: caixa nunca pré-marcada (art. 7.º RGPD) */
+        .newsletter-consent { display: flex; gap: 9px; align-items: flex-start; margin: 14px auto 0; max-width: 340px; text-align: left; font-size: 11.5px; line-height: 1.5; color: var(--brown-medium); cursor: pointer; }
+        .newsletter-consent input { flex: none; margin-top: 2px; accent-color: var(--gold); }
+        .newsletter-consent a { color: var(--gold); }
+        .newsletter-popup.is-subscribed .newsletter-consent { display: none; }
+        @media (max-width: 480px) { .newsletter-dialog { padding: 44px 25px 30px; } .newsletter-form { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+<!-- POP-UP NEWSLETTER -->
+<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-title" aria-hidden="true">
+    <div class="newsletter-dialog">
+        <button class="newsletter-close" type="button" aria-label="Fechar">×</button>
+        <div class="newsletter-kicker">Clube NÓMADA</div>
+        <h2 id="newsletter-title">Subscreve a nossa newsletter</h2>
+        <p>Recebe 10% de desconto na tua primeira compra, além de novidades e lançamentos em primeira mão.</p>
+        <form class="newsletter-form" novalidate>
+            <input type="email" name="email" autocomplete="email" placeholder="O teu e-mail" aria-label="O teu e-mail" required>
+            <button type="submit" aria-label="Subscrever newsletter e enviar e-mail">Subscrever newsletter</button>
+        </form>
+        <label class="newsletter-consent">
+            <input type="checkbox" class="newsletter-consent-box">
+            <span>Aceito receber e-mails da NÓMADA com novidades e promoções e li a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>. Posso cancelar a subscrição a qualquer momento.</span>
+        </label>
+        <p class="newsletter-error" role="alert" aria-live="polite"></p>
+        <p class="newsletter-success" role="status">Obrigada por te juntares ao clube NÓMADA! O teu desconto de 10% está a caminho.</p>
+    </div>
+</div>
+
+<!-- BARRA DE ANÚNCIO -->
+<div class="announce-bar">
+    <div class="announce-track">
+        <span>Subscreve a nossa newsletter e ganha 10% na tua primeira compra</span>
+        <span>Não percas a nova coleção!</span>
+        <span>Feito por encomenda · entrega em 7 a 12 dias úteis</span>
+        <span aria-hidden="true">Subscreve a nossa newsletter e ganha 10% na tua primeira compra</span>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/">Início</a>
+            <a href="#colecao">Catálogo</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <a href="#" class="logo">NÓMADA</a>
+        <div class="nav-right">
+            <div class="nav-search">
+                <button class="search-toggle" id="search-toggle" aria-label="Pesquisar" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </button>
+                <div class="search-panel" id="search-panel">
+                    <input type="search" id="search-input" placeholder="Pesquisar capa…" autocomplete="off">
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+            <a href="#" class="nav-cart" id="nav-cart" aria-label="Carrinho">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 8h12l-.8 11.2a1 1 0 0 1-1 .8H7.8a1 1 0 0 1-1-.8L6 8z"/>
+                    <path d="M9 8a3 3 0 0 1 6 0"/>
+                </svg>
+                <span class="cart-count" id="cart-count"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="conteudo">
+    <div class="container">
+        <div class="hero-text">
+            <span class="label hero-label">Inspired by everyday moments</span>
+            <h1>Designed for every<br><em>version</em> of you.</h1>
+            <a href="#colecao" class="cta-btn cta-desktop">Ver a coleção <span class="cta-arrow">→</span></a>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-deck is-closed" id="hero-deck">
+                <div class="hero-deck-item">
+                    <img src="amarela/nomada-nem-era-frente-removebg-preview.png" alt="Capa NÓMADA amarela">
+                </div>
+                <div class="hero-deck-item">
+                    <img src="azul/Front-16.png" alt="Capa NÓMADA azul">
+                </div>
+                <div class="hero-deck-item">
+                    <img src="vermelha/Front-12.png" alt="Capa NÓMADA coral">
+                </div>
+                <div class="hero-deck-item">
+                    <img src="rosa/Front-13.png" alt="Capa NÓMADA rosa">
+                </div>
+                <div class="hero-deck-item">
+                    <img src="roxa/Front-11.png" alt="Capa NÓMADA lilás">
+                </div>
+                <div class="hero-deck-item">
+                    <img src="verde/Front-14.png" alt="Capa NÓMADA verde">
+                </div>
+            </div>
+        </div>
+        <a href="#colecao" class="cta-btn cta-mobile">Ver a coleção <span class="cta-arrow">→</span></a>
+    </div>
+    <a href="#colecao" class="scroll-down" id="scroll-down" aria-label="Ver mais abaixo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+</section>
+
+<!-- STRIPES -->
+<div class="stripes"></div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="colecao">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="label">A coleção</span>
+            <h2>Seis capas. Seis maneiras de seres tu</h2>
+            <p>Uma para ti. Outra para quem é mesmo assim.</p>
+        </div>
+
+        <div class="products-grid">
+
+            <!-- PILATES ÀS 8H -->
+            <div class="product-card reveal" data-pid="15654954500473">
+                <div class="product-img-wrap card-rose">
+                    <a class="product-img-link" href="produto.html?p=portuguesa">
+                        <img src="rosa/Front-13-trim.png" alt="Capa Pilates às 8h">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=portuguesa">Pilates às 8h</a></div>
+                    <p class="product-desc">"pilates às 8h" era o plano. acordar às 8h02 e voltar a dormir foi a realidade. 🧘‍♀️</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1784199419864'></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEET ME IN PARIS (AZUL) -->
+            <div class="product-card reveal" data-pid="15698256822649">
+                <div class="product-img-wrap card-blue">
+                    <span class="card-badge">Novidade</span>
+                    <a class="product-img-link" href="produto.html?p=paris">
+                        <img src="azul/Front-16-trim.png" alt="Capa Meet me in Paris">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=paris">Meet me in Paris</a></div>
+                    <p class="product-desc">croissant, café e aquele plano de fuga que ainda não marcaste. paris que espere mais um bocadinho. 🥐</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1786723548009'></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEM ERA -->
+            <div class="product-card reveal" data-pid="15654951747961">
+                <div class="product-img-wrap card-mustard">
+                    <span class="card-badge">Best Seller</span>
+                    <a class="product-img-link" href="produto.html?p=nemera">
+                        <img src="amarela/nomada-nem-era-frente-trim.png" alt="Capa Nem era para sair hoje">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=nemera">Nem era para sair hoje</a></div>
+                    <p class="product-desc">"juro que hoje fico em casa." duas horas depois, terceiro cocktail e a dizer à amiga "mais uma e vamos." 🍸</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1784199399195'></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RED FLAGS? EU COLECIONO -->
+            <div class="product-card reveal" data-pid="15655304462713">
+                <div class="product-img-wrap card-coral">
+                    <a class="product-img-link" href="produto.html?p=redflags">
+                        <img src="vermelha/Front-12-trim.png" alt="Capa red flags? eu coleciono">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=redflags">red flags? eu coleciono</a></div>
+                    <p class="product-desc">não ignoro red flags, faço uma coleção. já vou pelo terceiro álbum. 🚩</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1784216696098'></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 MINUTOS E SAIO... (LILÁS) -->
+            <div class="product-card reveal" data-pid="15655368327545">
+                <div class="product-img-wrap card-lilac">
+                    <a class="product-img-link" href="produto.html?p=5minutos">
+                        <img src="roxa/Front-11-trim.png" alt="Capa 5 minutos e saio...">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=5minutos">5 minutos e saio...</a></div>
+                    <p class="product-desc">"5 minutos e saio" é uma unidade de tempo só nossa. ninguém percebe. 💄</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1784222494038'></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GIRL DINNER -->
+            <div class="product-card reveal" data-pid="15654942278009">
+                <div class="product-img-wrap card-sage">
+                    <span class="card-badge">Best Seller</span>
+                    <a class="product-img-link" href="produto.html?p=girldinner">
+                        <img src="verde/Front-14-trim.png" alt="Capa Girl Dinner">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-name"><a href="produto.html?p=girldinner">Girl Dinner</a></div>
+                    <p class="product-desc">o girl dinner que sabe mais que o brunch a 18€ que tiraste para o story. 🐟</p>
+                    <div class="product-price">
+                        <span class="product-price-now">24,99€</span>
+                    </div>
+                    <p class="product-ship">Feito por encomenda · entrega em 7 a 12 dias úteis</p>
+                    <div class="buy-btn-wrap">
+                        <div id='product-component-1784199438821'></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+    <div class="container">
+        <div class="about-intro reveal">
+            <span class="label about-label">Sobre a NÓMADA</span>
+            <h2>Design português,<br><em>feito</em> para durar.</h2>
+            <ul class="about-points">
+                <li><strong>Edição limitada</strong>, quando esgotar estas capas nunca mais serão feitas</li>
+                <li><strong>Design original</strong> criado em Portugal</li>
+                <li><strong>Materiais resistentes</strong> e impressão de alta qualidade</li>
+                <li><strong>Feito por encomenda</strong>, com controlo de qualidade</li>
+                <li><strong>Envio para todo o país</strong> e garantia de qualidade</li>
+            </ul>
+        </div>
+        <div class="about-text reveal">
+            <p>A NÓMADA nasceu de uma ideia simples: as frases que dizemos todos os dias — o humor, as manias, as expressões que nos definem — merecem sair da conversa e ganhar forma. Não é só para ti. É o presente certo para quem "é mesmo assim".</p>
+            <p>Cada coleção é uma <strong>edição limitada</strong>: quando esgota, estas capas nunca mais voltam a ser produzidas. Quem as tem, tem uma peça única.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="label">Dúvidas</span>
+            <h2>Perguntas frequentes</h2>
+        </div>
+        <div class="faq-list reveal">
+            <details class="faq-item">
+                <summary>As capas estão sempre disponíveis?</summary>
+                <p>Não, cada capa NÓMADA é uma <strong>edição limitada</strong>, pensada nos momentos do dia-a-dia. Quando esgota, nunca mais vai voltar a ser lançada. Se uma capa te conquistou, não esperes demasiado, depois de esgotar, já era.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Quanto tempo demora a entrega?</summary>
+                <p>Cada capa é feita por encomenda, especialmente para ti. Entre produção e envio, recebes normalmente em 7 a 12 dias úteis. Enviamos para todo o país.</p>
+            </details>
+            <details class="faq-item">
+                <summary>O material é resistente?</summary>
+                <p>Sim. As capas têm uma qualidade acima da média com uma impressão de alta qualidade e proteção pensada para o dia-a-dia (quedas pequenas, riscos e uso diário). Elas são feitas para durar e para te fazer rir.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Como posso falar convosco?</summary>
+                <p>Manda-nos um email para <a href="mailto:suporte.nomada.pt@gmail.com">suporte.nomada.pt@gmail.com</a>, respondemos o mais rápido possível. Dúvidas, trocas ou só para dizer olá, estamos cá. 🤍</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contactos">
+    <div class="container">
+        <div class="footer-brand">
+            <span class="logo">NÓMADA</span>
+            <p class="footer-tagline">Inspired by everyday moments.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Contactos</h3>
+            <ul>
+                <li><a href="mailto:suporte.nomada.pt@gmail.com">suporte.nomada.pt@gmail.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="termos.html">Termos e Condições</a></li>
+                <li><a href="reembolso.html">Devoluções e Trocas</a></li>
+                <li><a href="envios.html">Política de Envios</a></li>
+                <li><a href="privacidade.html">Política de Privacidade</a></li>
+                <li><a href="cookies.html">Política de Cookies</a></li>
+                <li><a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener">Livro de Reclamações</a></li>
+                <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">Resolução de Litígios (RAL)</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div class="footer-bar">
+    <div class="container footer-bottom">
+        <div>© 2026 NÓMADA</div>
+        <div>Feito com carinho para ti</div>
+    </div>
+</div>
+
+<!-- SHOPIFY BUY BUTTONS -->
+<script type="text/javascript">
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'qgze5e-ae.myshopify.com',
+      storefrontAccessToken: '00947491cc3aa75fc79abe82ec046857',
+    });
+
+    var btnOpts = {
+      "product": {
+        "iframe": false,
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0",
+              "margin-bottom": "0"
+            }
+          },
+          "title": { "display": "none" },
+          "price": { "display": "none" },
+          "button": {
+            "font-family": "'Inter', sans-serif",
+            "font-size": "12px",
+            "font-weight": "500",
+            "letter-spacing": "0.14em",
+            "text-transform": "uppercase",
+            ":hover": { "background-color": "#805317" },
+            "background-color": "#95611A",
+            ":focus": { "background-color": "#805317" },
+            "border-radius": "25px",
+            "padding": "14px 28px",
+            "width": "100%"
+          }
+        },
+        "contents": {
+          "img": false,
+          "title": false,
+          "price": false,
+          "description": false,
+          "button": true,
+          "imgWithCarousel": false
+        },
+        "text": { "button": "Comprar" }
+      },
+      "productSet": {
+        "styles": {
+          "products": {
+            "@media (min-width: 601px)": { "margin-left": "-20px" }
+          }
+        }
+      },
+      "modalProduct": {
+        "contents": {
+          "img": false,
+          "imgWithCarousel": true,
+          "button": false,
+          "buttonWithQuantity": true
+        },
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "0px"
+            }
+          },
+          "button": {
+            "font-weight": "bold",
+            ":hover": { "background-color": "#805317" },
+            "background-color": "#95611A",
+            ":focus": { "background-color": "#805317" },
+            "border-radius": "25px",
+            "padding-left": "31px",
+            "padding-right": "31px"
+          }
+        },
+        "text": { "button": "Comprar" }
+      },
+      "option": {},
+      "cart": {
+        "styles": {
+          "button": {
+            "font-weight": "bold",
+            ":hover": { "background-color": "#805317" },
+            "background-color": "#95611A",
+            ":focus": { "background-color": "#805317" },
+            "border-radius": "25px"
+          }
+        },
+        "text": {
+          "title": "Carrinho",
+          "total": "Subtotal",
+          "empty": "O seu carrinho está vazio.",
+          "notice": "Os custos de envio e códigos de desconto são adicionados no checkout.",
+          "button": "Finalizar"
+        },
+        "popup": false
+      },
+      "toggle": {
+        "styles": {
+          "toggle": {
+            "font-weight": "bold",
+            "background-color": "#95611A",
+            ":hover": { "background-color": "#805317" },
+            ":focus": { "background-color": "#805317" }
+          }
+        }
+      }
+    };
+
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      // Pilates às 8h
+      ui.createComponent('product', {
+        id: '15654954500473',
+        node: document.getElementById('product-component-1784199419864'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+      // Girl Dinner
+      ui.createComponent('product', {
+        id: '15654942278009',
+        node: document.getElementById('product-component-1784199438821'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+      // Nem era para sair hoje
+      ui.createComponent('product', {
+        id: '15654951747961',
+        node: document.getElementById('product-component-1784199399195'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+      // red flags? eu coleciono
+      ui.createComponent('product', {
+        id: '15655304462713',
+        node: document.getElementById('product-component-1784216696098'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+      // 5 minutos e saio... (lilás)
+      ui.createComponent('product', {
+        id: '15655368327545',
+        node: document.getElementById('product-component-1784222494038'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+      // Meet me in Paris (azul)
+      ui.createComponent('product', {
+        id: '15698256822649',
+        node: document.getElementById('product-component-1786723548009'),
+        moneyFormat: '%7B%7Bamount_with_comma_separator%7D%7D%E2%82%AC',
+        options: btnOpts,
+      });
+
+      // ===== CARRINHO na barra de navegação =====
+      var navCart = document.getElementById('nav-cart');
+      var cartCount = document.getElementById('cart-count');
+      // o carrinho é criado pelo SDK ao criar os produtos, já com as opções de btnOpts;
+      // criar um segundo aqui daria um carrinho vazio e sem tradução
+      function getCart() {
+        return (ui && ui.components && ui.components.cart && ui.components.cart[0]) || null;
+      }
+      function clickNativeToggle() {
+        var frames = document.querySelectorAll('iframe.shopify-buy-frame, iframe.shopify-buy-frame--toggle');
+        for (var i = 0; i < frames.length; i++) {
+          try {
+            var doc = frames[i].contentDocument || (frames[i].contentWindow && frames[i].contentWindow.document);
+            if (!doc) { continue; }
+            var btn = doc.querySelector('.shopify-buy__cart-toggle') ||
+                      doc.querySelector('.shopify-buy__btn--cart-tab') ||
+                      doc.querySelector('button');
+            if (btn) { btn.click(); return true; }
+          } catch (err) {}
+        }
+        return false;
+      }
+      function openCart() {
+        var c = getCart();
+        if (c && typeof c.open === 'function') { try { c.open(); return; } catch (e) {} }
+        if (c && c.toggle && typeof c.toggle.open === 'function') { try { c.toggle.open(); return; } catch (e) {} }
+        clickNativeToggle();
+      }
+      if (navCart) {
+        // stopPropagation é essencial: o SDK fecha o carrinho em qualquer clique
+        // que borbulhe até ao document vindo de fora do carrinho — incluindo este
+        navCart.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); openCart(); });
+      }
+      function updateCount() {
+        try {
+          var c = getCart();
+          var items = c && c.model && c.model.lineItems ? c.model.lineItems : [];
+          var total = items.reduce(function (n, it) { return n + (it.quantity || 0); }, 0);
+          if (cartCount) {
+            cartCount.textContent = total;
+            cartCount.classList.toggle('show', total > 0);
+          }
+        } catch (err) {}
+      }
+      updateCount();
+      setInterval(updateCount, 1000);
+    });
+  }
+})();
+</script>
+
+<!-- BANNER DE COOKIES (RGPD) -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-text">
+        Usamos cookies essenciais para o funcionamento do site e, com o teu consentimento, cookies de análise para melhorar a tua experiência.
+        Consulta a <a href="cookies.html">Política de Cookies</a>.
+    </div>
+    <div class="cookie-actions">
+        <button class="cookie-btn cookie-reject" id="cookie-reject">Rejeitar</button>
+        <button class="cookie-btn cookie-accept" id="cookie-accept">Aceitar</button>
+    </div>
+</div>
+
+<!-- INTERAÇÕES: menu mobile, animações de scroll, leque no telemóvel, cookies -->
+<script>
+(function () {
+    var nav = document.querySelector('nav');
+    var toggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+
+    /* Barra de navegação transparente no topo, visível ao fazer scroll */
+    function updateNavScroll() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    updateNavScroll();
+    window.addEventListener('scroll', updateNavScroll, { passive: true });
+
+    /* Menu hambúrguer */
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        });
+        navLinks.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                nav.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    /* Animação de entrada ao fazer scroll */
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+        revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    }
+
+    /* Baralho: abre automaticamente ao carregar (sai do estado empilhado).
+       Usa requestAnimationFrame para funcionar de forma fiável (também no telemóvel). */
+    var heroDeck = document.getElementById('hero-deck');
+    if (heroDeck) {
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                setTimeout(function () { heroDeck.classList.remove('is-closed'); }, 350);
+            });
+        });
+    }
+
+    /* Consentimento de cookies (RGPD) */
+    var banner = document.getElementById('cookie-banner');
+    if (banner) {
+        var choice = null;
+        try { choice = localStorage.getItem('nomada_cookie_consent'); } catch (e) {}
+        if (!choice) { banner.classList.add('show'); }
+        function setConsent(value) {
+            try { localStorage.setItem('nomada_cookie_consent', value); } catch (e) {}
+            banner.classList.remove('show');
+            /* Aqui podes ativar scripts de análise só se value === 'accepted' */
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { setConsent('accepted'); });
+        document.getElementById('cookie-reject').addEventListener('click', function () { setConsent('rejected'); });
+    }
+
+    /* Pop-up de newsletter — aparece após 5 segundos, exceto após subscrição */
+
+    /* ===== CONFIGURAÇÃO DA NEWSLETTER =====
+       mode 'storefront' : chama a Shopify diretamente com o token PÚBLICO abaixo. Ativo agora.
+                           Usa a versão 'unstable' porque customerEmailMarketingSubscribe ainda
+                           não existe em nenhuma versão estável da Storefront API.
+       mode 'endpoint'   : chama o Worker serverless, que usa a Admin API (estável). Produção.
+
+       PARA MIGRAR PARA PRODUÇÃO (ver newsletter-worker/README.md):
+         1. põe o URL do Worker em endpointUrl
+         2. muda mode para 'endpoint'
+       Mais nada muda. Repete nos dois ficheiros: index.html e produto.html.
+
+       O token abaixo é um Storefront token PÚBLICO — pode estar no HTML sem risco.
+       NUNCA colocar aqui um Admin API token, API key ou secret. */
+    var NOMADA_NEWSLETTER = {
+        mode: 'storefront',
+        domain: 'qgze5e-ae.myshopify.com',
+        storefrontAccessToken: '00947491cc3aa75fc79abe82ec046857',
+        apiVersion: 'unstable',
+        endpointUrl: ''
+    };
+
+    /* Subscreve o email. Resolve em caso de sucesso, lança Error em qualquer falha. */
+    async function nomadaSubscribe(email) {
+        var cfg = NOMADA_NEWSLETTER;
+
+        if (cfg.mode === 'endpoint') {
+            if (!cfg.endpointUrl) { throw new Error('Endpoint da newsletter não configurado.'); }
+            var epRes = await fetch(cfg.endpointUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            });
+            var epData = await epRes.json().catch(function () { return {}; });
+            if (!epRes.ok || epData.ok !== true) {
+                throw new Error(epData.error || 'Não foi possível concluir a subscrição.');
+            }
+            return;
+        }
+
+        if (!cfg.domain || !cfg.storefrontAccessToken) {
+            throw new Error('Storefront da newsletter não configurada.');
+        }
+        var res = await fetch('https://' + cfg.domain + '/api/' + cfg.apiVersion + '/graphql.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': cfg.storefrontAccessToken
+            },
+            body: JSON.stringify({
+                query: 'mutation customerEmailMarketingSubscribe($email: String!) { customerEmailMarketingSubscribe(email: $email) { customerUserErrors { field message code } } }',
+                variables: { email: email }
+            })
+        });
+        var result = await res.json().catch(function () { return {}; });
+        var payload = result.data && result.data.customerEmailMarketingSubscribe;
+        var userErrors = (payload && payload.customerUserErrors) || [];
+
+        /* Sucesso pela via principal. */
+        if (res.ok && payload && !userErrors.length) { return; }
+
+        /* Email inválido/recusado: é erro do utilizador, não vale a pena tentar a reserva. */
+        if (userErrors.length) { throw new Error(userErrors[0].message); }
+
+        /* A mutation vive só na versão 'unstable' da Storefront API. Se a Shopify a
+           alterar ou remover, esta chamada passa a falhar em silêncio e perderíamos
+           todos os subscritores. A via de reserva usa uma versão ESTÁVEL. */
+        return await nomadaSubscribeReserva(email, cfg);
+    }
+
+    /* Via de reserva, em versão estável: cria o cliente já com consentimento de
+       marketing. A password é aleatória e nunca é usada — serve só porque o
+       customerCreate a exige. Email já existente conta como já subscrito. */
+    async function nomadaSubscribeReserva(email, cfg) {
+        var bytes = new Uint8Array(18);
+        window.crypto.getRandomValues(bytes);
+        var pwd = 'Nm-' + Array.prototype.map.call(bytes, function (b) {
+            return ('0' + b.toString(16)).slice(-2);
+        }).join('') + '!7';
+
+        var res = await fetch('https://' + cfg.domain + '/api/2026-07/graphql.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': cfg.storefrontAccessToken
+            },
+            body: JSON.stringify({
+                query: 'mutation c($input: CustomerCreateInput!) { customerCreate(input: $input) ' +
+                       '{ customer { id } customerUserErrors { field message code } } }',
+                variables: { input: { email: email, password: pwd, acceptsMarketing: true } }
+            })
+        });
+        var out = await res.json().catch(function () { return {}; });
+        var pl = out.data && out.data.customerCreate;
+        var errs = (pl && pl.customerUserErrors) || [];
+        if (pl && pl.customer) { return; }
+        var jaExiste = errs.some(function (er) {
+            return er.code === 'TAKEN' || /already|taken/i.test(er.message || '');
+        });
+        if (jaExiste) { return; }
+        throw new Error((errs[0] && errs[0].message) || 'Não foi possível concluir a subscrição.');
+    }
+
+    var newsletter = document.getElementById('newsletter-popup');
+    if (newsletter) {
+        var newsletterInput = newsletter.querySelector('input');
+        var newsletterClose = newsletter.querySelector('.newsletter-close');
+        var newsletterForm = newsletter.querySelector('form');
+        var newsletterButton = newsletterForm.querySelector('button[type="submit"]');
+        var newsletterError = newsletter.querySelector('.newsletter-error');
+        var newsletterSubscribed = false;
+        var newsletterAlreadyShown = false;
+        try {
+            newsletterSubscribed = localStorage.getItem('nomada_newsletter_shopify_subscribed') === 'true';
+            newsletterAlreadyShown = localStorage.getItem('nomada_newsletter_shown') === 'true';
+        } catch (e) {}
+        function closeNewsletter() {
+            newsletter.classList.remove('is-visible');
+            newsletter.setAttribute('aria-hidden', 'true');
+        }
+        /* só aparece uma vez por visitante (primeira visita ao site, qualquer página) */
+        if (!newsletterSubscribed && !newsletterAlreadyShown) {
+            setTimeout(function () {
+                newsletter.classList.add('is-visible');
+                newsletter.setAttribute('aria-hidden', 'false');
+                newsletterInput.focus();
+                try { localStorage.setItem('nomada_newsletter_shown', 'true'); } catch (e) {}
+            }, 5000);
+        }
+        newsletterClose.addEventListener('click', closeNewsletter);
+        newsletter.addEventListener('click', function (e) { if (e.target === newsletter) { closeNewsletter(); } });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && newsletter.classList.contains('is-visible')) { closeNewsletter(); } });
+        function showNewsletterError(message) {
+            newsletterError.textContent = message;
+            newsletter.classList.add('has-error');
+        }
+        newsletterForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            newsletter.classList.remove('has-error');
+            if (!newsletterInput.checkValidity()) {
+                newsletterInput.reportValidity();
+                return;
+            }
+            /* RGPD: sem consentimento explícito não há subscrição */
+            var newsletterConsent = newsletter.querySelector('.newsletter-consent-box');
+            if (newsletterConsent && !newsletterConsent.checked) {
+                showNewsletterError('Para receberes a newsletter precisas de aceitar a Política de Privacidade.');
+                return;
+            }
+            newsletterButton.disabled = true;
+            newsletterButton.textContent = 'A subscrever...';
+            try {
+                await nomadaSubscribe(newsletterInput.value.trim());
+                /* só aqui, depois da Shopify confirmar, é que marcamos como subscrito */
+                newsletter.classList.add('is-subscribed');
+                try { localStorage.setItem('nomada_newsletter_shopify_subscribed', 'true'); } catch (storageError) {}
+            } catch (err) {
+                showNewsletterError('Não foi possível subscrever neste momento. Confirma o e-mail e tenta novamente.');
+                newsletterButton.disabled = false;
+                newsletterButton.textContent = 'Subscrever newsletter';
+            }
+        });
+    }
+
+    /* ===== PREÇOS REAIS DA SHOPIFY =====
+       Os preços dos cartões vêm da Shopify em tempo real, para nunca divergirem
+       do que é cobrado no checkout. O valor no HTML é só um valor de recurso,
+       usado se a chamada falhar.
+       Usa-se o preço do 1.º variante (o que o Buy Button traz pré-seleccionado),
+       e não o minVariantPrice: esse dava o modelo mais barato da lista, que em
+       vários produtos está abaixo do preço de tabela. */
+    (function () {
+        var cards = document.querySelectorAll('.product-card[data-pid]');
+        if (!cards.length || !window.fetch) { return; }
+        var cfg = NOMADA_NEWSLETTER;   /* reaproveita domínio + token público */
+        var ids = [];
+        cards.forEach(function (c) { ids.push(c.getAttribute('data-pid')); });
+
+        var query = 'query @inContext(country: PT) {' + ids.map(function (id, i) {
+            return 'p' + i + ': product(id: "gid://shopify/Product/' + id + '") ' +
+                   '{ id variants(first: 1) { nodes { price { amount currencyCode } } } }';
+        }).join(' ') + '}';
+
+        function formatar(amount, moeda) {
+            try {
+                return new Intl.NumberFormat('pt-PT', {
+                    style: 'currency', currency: moeda || 'EUR'
+                }).format(parseFloat(amount)).replace(/\s/g, ' ');
+            } catch (e) {
+                return parseFloat(amount).toFixed(2).replace('.', ',') + '€';
+            }
+        }
+
+        fetch('https://' + cfg.domain + '/api/2026-07/graphql.json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': cfg.storefrontAccessToken
+            },
+            body: JSON.stringify({ query: query })
+        }).then(function (r) { return r.json(); }).then(function (res) {
+            if (!res || !res.data) { return; }
+            Object.keys(res.data).forEach(function (k) {
+                var prod = res.data[k];
+                if (!prod || !prod.variants || !prod.variants.nodes[0]) { return; }
+                var pid = prod.id.split('/').pop();
+                var card = document.querySelector('.product-card[data-pid="' + pid + '"]');
+                if (!card) { return; }
+                var alvo = card.querySelector('.product-price-now');
+                var mp = prod.variants.nodes[0].price;
+                if (alvo) { alvo.textContent = formatar(mp.amount, mp.currencyCode); }
+            });
+        }).catch(function () { /* mantém o valor de recurso do HTML */ });
+    })();
+
+    /* ===== PESQUISA (lupa) — capas, contactos e páginas do site ===== */
+    var CATALOG = [
+        { name: "Pilates às 8h", url: "produto.html?p=portuguesa", tags: "capa telemovel iphone samsung pilates ginasio treino", kind: "Capa" },
+        { name: "Girl Dinner", url: "produto.html?p=girldinner", tags: "capa telemovel iphone samsung sardinha jantar", kind: "Capa" },
+        { name: "Nem era para sair hoje", url: "produto.html?p=nemera", tags: "capa telemovel iphone samsung cocktail sair", kind: "Capa" },
+        { name: "red flags? eu coleciono", url: "produto.html?p=redflags", tags: "capa telemovel iphone samsung bandeira red flag", kind: "Capa" },
+        { name: "5 minutos e saio...", url: "produto.html?p=5minutos", tags: "capa telemovel iphone samsung atraso pronta", kind: "Capa" },
+        { name: "Meet me in Paris", url: "produto.html?p=paris", tags: "capa telemovel iphone samsung paris croissant azul viagem franca", kind: "Capa" },
+        { name: "Catálogo", url: "#colecao", tags: "coleccao colecao capas produtos loja comprar", kind: "Página" },
+        { name: "Sobre a NÓMADA", url: "#sobre", tags: "quem somos marca historia portugal", kind: "Página" },
+        { name: "Contactos", url: "#contactos", tags: "contacto email apoio suporte ajuda falar", kind: "Página" },
+        { name: "Perguntas Frequentes", url: "#faq", tags: "faq duvidas ajuda entrega prazo trocas devolucao modelos material", kind: "Página" },
+        { name: "Política de Privacidade", url: "privacidade.html", tags: "dados rgpd privacidade", kind: "Página" },
+        { name: "Termos e Condições", url: "termos.html", tags: "termos condicoes legal contrato", kind: "Página" },
+        { name: "Devoluções e Trocas", url: "reembolso.html", tags: "devolucao devolver trocar reembolso dinheiro 14 dias", kind: "Página" },
+        { name: "Política de Envios", url: "envios.html", tags: "envio portes entrega prazo transportadora seguimento", kind: "Página" },
+        { name: "Política de Cookies", url: "cookies.html", tags: "cookies privacidade consentimento", kind: "Página" }
+    ];
+    var sToggle = document.getElementById('search-toggle');
+    var sPanel = document.getElementById('search-panel');
+    var sInput = document.getElementById('search-input');
+    var sResults = document.getElementById('search-results');
+    if (sToggle && sPanel) {
+        var normTxt = function (s) {
+            return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        };
+        var searchMatches = function (q) {
+            var nq = normTxt(q);
+            return CATALOG.filter(function (p) {
+                return normTxt(p.name + ' ' + p.tags).indexOf(nq) !== -1;
+            });
+        };
+        var renderResults = function (list) {
+            if (!list.length) {
+                sResults.innerHTML = '<div class="search-empty">Nada encontrado. Tenta "capa", "contactos" ou "devoluções".</div>';
+                return;
+            }
+            sResults.innerHTML = list.map(function (p) {
+                return '<a href="' + p.url + '">' + p.name +
+                       '<span class="search-kind">' + p.kind + '</span></a>';
+            }).join('');
+        };
+        var openSearch = function () {
+            sPanel.classList.add('open');
+            sToggle.setAttribute('aria-expanded', 'true');
+            renderResults(CATALOG.filter(function (p) { return p.kind === 'Capa'; }));
+            setTimeout(function () { sInput.focus(); }, 50);
+        };
+        var closeSearch = function () {
+            sPanel.classList.remove('open');
+            sToggle.setAttribute('aria-expanded', 'false');
+        };
+        sToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            sPanel.classList.contains('open') ? closeSearch() : openSearch();
+        });
+        sPanel.addEventListener('click', function (e) { e.stopPropagation(); });
+        document.addEventListener('click', closeSearch);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSearch(); } });
+        sInput.addEventListener('input', function () {
+            var q = sInput.value.trim();
+            renderResults(q ? searchMatches(q) : CATALOG);
+        });
+        sInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                var first = sResults.querySelector('a');
+                if (first) { window.location.href = first.getAttribute('href'); }
+            }
+        });
+    }
+
+    /* ===== Seletor de modelo: mostra "Selecionar modelo" até o cliente escolher ===== */
+    function setupModelPlaceholders() {
+        document.querySelectorAll('.buy-btn-wrap').forEach(function (wrap) {
+            if (!wrap.__phInit) {
+                wrap.__phInit = true;
+                /* assim que o cliente escolhe um modelo, deixamos de repor o placeholder */
+                wrap.addEventListener('change', function (e) {
+                    if (e.target && e.target.tagName === 'SELECT') { wrap.__picked = true; }
+                }, true);
+                /* impedir "Comprar" sem modelo escolhido */
+                wrap.addEventListener('click', function (e) {
+                    var btn = e.target && e.target.closest ? e.target.closest('.shopify-buy__btn') : null;
+                    if (!btn) { return; }
+                    var sel = wrap.querySelector('select');
+                    if (sel && sel.value === '__ph__') {
+                        e.preventDefault(); e.stopPropagation();
+                        sel.focus();
+                    }
+                }, true);
+            }
+            if (wrap.__picked) { return; }
+            var sel = wrap.querySelector('select');
+            if (sel && !sel.querySelector('option[value="__ph__"]')) {
+                var opt = document.createElement('option');
+                opt.value = '__ph__';
+                opt.textContent = 'Selecionar modelo';
+                opt.disabled = true; opt.hidden = true;
+                sel.insertBefore(opt, sel.firstChild);
+                sel.value = '__ph__';
+            }
+        });
+    }
+    setInterval(setupModelPlaceholders, 400);
+})();
+</script>
+
+</body>
+</html>
