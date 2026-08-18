@@ -1,8 +1,15 @@
 services:
   nomada-site:
-    build: .
+    image: nginx:alpine
     container_name: nomada-site
     restart: unless-stopped
+    command: >
+      sh -c "apk add --no-cache git &&
+             git clone --depth 1 https://github.com/antoniomacha16/nomada-site.git /tmp/site &&
+             cp /tmp/site/nginx.conf /etc/nginx/conf.d/default.conf &&
+             rm -rf /tmp/site/.git /tmp/site/Dockerfile /tmp/site/docker-compose.yml /tmp/site/nginx.conf /tmp/site/.dockerignore /tmp/site/.htaccess /tmp/site/newsletter-worker &&
+             cp -r /tmp/site/. /usr/share/nginx/html/ &&
+             nginx -g 'daemon off;'"
     labels:
       - traefik.enable=true
       - traefik.http.routers.nomada-site.entrypoints=websecure
